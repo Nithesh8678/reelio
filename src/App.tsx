@@ -1,14 +1,27 @@
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Preloader } from "@/components/layout/Preloader";
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Offerings } from "@/components/sections/Offerings";
-import { Resources } from "@/components/sections/Resources";
-import { Contact } from "@/components/sections/Contact";
+
+// Pages
+import Home from "@/pages/Home";
+import About from "@/pages/About";
+import Offerings from "@/pages/Offerings";
+import Resources from "@/pages/Resources";
+import Contact from "@/pages/Contact";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -49,8 +62,9 @@ function CustomCursor() {
   );
 }
 
-export default function App() {
+function AppContent() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const location = useLocation();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -59,7 +73,6 @@ export default function App() {
   });
 
   useEffect(() => {
-    // Simulate loading time for preloader
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 2500);
@@ -86,6 +99,7 @@ export default function App() {
     <div className="bg-reelio-black text-white selection:bg-primary selection:text-white">
       <Preloader />
       <CustomCursor />
+      <ScrollToTop />
       
       {/* Progress Bar */}
       <motion.div
@@ -95,19 +109,32 @@ export default function App() {
 
       <Navbar />
       
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isLoaded ? 1 : 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <Hero />
-        <About />
-        <Offerings />
-        <Resources />
-        <Contact />
-      </motion.main>
+      <AnimatePresence mode="wait">
+        <motion.main
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isLoaded ? 1 : 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/offerings" element={<Offerings />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </motion.main>
+      </AnimatePresence>
 
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }

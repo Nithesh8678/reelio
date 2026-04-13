@@ -1,4 +1,5 @@
 import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -6,14 +7,14 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-16 mb-20">
           <div className="col-span-2">
-            <a href="#home" className="flex items-center gap-2 mb-8">
+            <Link to="/" className="flex items-center gap-2 mb-8">
               <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
                 <span className="text-white font-bold text-xl">R</span>
               </div>
               <span className="text-2xl font-heading font-bold tracking-tighter text-white">
                 REELIO<span className="text-primary">.</span>
               </span>
-            </a>
+            </Link>
             <p className="text-white/40 max-w-sm leading-relaxed">
               We are a digital agency that believes in the power of data-driven creativity. Our mission is to help brands reel in their audience through impactful content and strategic marketing.
             </p>
@@ -22,11 +23,17 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8">Navigation</h4>
             <ul className="space-y-4">
-              {["Home", "About us", "Offerings", "Resources", "Contact us"].map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase().replace(" ", "")}`} className="text-white/40 hover:text-primary transition-colors text-sm">
-                    {item}
-                  </a>
+              {[
+                { name: "Home", href: "/" },
+                { name: "About us", href: "/about" },
+                { name: "Offerings", href: "/offerings" },
+                { name: "Resources", href: "/resources" },
+                { name: "Contact us", href: "/contact" }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link to={item.href} className="text-white/40 hover:text-primary transition-colors text-sm">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
