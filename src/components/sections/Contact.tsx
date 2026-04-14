@@ -1,8 +1,11 @@
+"use client";
+
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { whatsappUrl } from "@/content/site-content";
 
 export function Contact() {
   return (
@@ -40,6 +43,23 @@ export function Contact() {
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Call us</div>
                   <div className="text-xl text-white font-medium">+1 (555) 123-4567</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-6">
+                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-primary">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-widest text-white/40 mb-2">WhatsApp</div>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-bold tracking-[0.2em] uppercase text-primary hover:text-white transition-colors"
+                  >
+                    Go to WhatsApp
+                  </a>
                 </div>
               </div>
 
@@ -87,6 +107,13 @@ export function Contact() {
                 SEND MESSAGE
                 <Send className="ml-2 w-5 h-5" />
               </Button>
+
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="block">
+                <Button className="w-full bg-transparent border border-primary text-primary hover:bg-primary hover:text-white rounded-none h-16 text-sm font-bold tracking-[0.22em] uppercase transition-all duration-500">
+                  Continue on WhatsApp
+                  <MessageCircle className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
             </form>
           </motion.div>
         </div>

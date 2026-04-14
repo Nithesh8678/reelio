@@ -1,20 +1,29 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Reelio Website (Next.js)
 
-# Run and deploy your AI Studio app
+This project is now running on Next.js App Router with TypeScript and Tailwind CSS.
 
-This contains everything you need to run your app locally.
+## Prerequisites
 
-View your app in AI Studio: https://ai.studio/apps/ef2a97f7-67d0-422a-b61a-d1ab8f9e450c
+1. Node.js 18+
+2. npm
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
+## Local Development
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Start development server:
    `npm run dev`
+3. Open:
+   `http://localhost:3000`
+
+## Production Build
+
+1. Build:
+   `npm run build`
+2. Start production server:
+   `npm run start`
+
+## Type Checking
+
+1. Run TypeScript checks:
+   `npm run lint`

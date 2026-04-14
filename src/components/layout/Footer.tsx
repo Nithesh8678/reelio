@@ -1,5 +1,7 @@
+"use client";
+
 import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -7,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-16 mb-20">
           <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-8">
+            <Link href="/" className="flex items-center gap-2 mb-8">
               <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
                 <span className="text-white font-bold text-xl">R</span>
               </div>
@@ -31,7 +33,7 @@ export function Footer() {
                 { name: "Contact us", href: "/contact" }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.href} className="text-white/40 hover:text-primary transition-colors text-sm">
+                  <Link href={item.href} className="text-white/40 hover:text-primary transition-colors text-sm">
                     {item.name}
                   </Link>
                 </li>

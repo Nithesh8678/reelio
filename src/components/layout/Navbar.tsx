@@ -1,9 +1,12 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { motion } from "motion/react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,7 +18,7 @@ const navLinks = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +37,7 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
             <span className="text-white font-bold text-xl">R</span>
           </div>
@@ -48,15 +51,15 @@ export function Navbar() {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              to={link.href}
+              href={link.href}
               className={`text-sm font-medium transition-colors uppercase tracking-widest ${
-                location.pathname === link.href ? "text-primary" : "text-white/70 hover:text-primary"
+                pathname === link.href ? "text-primary" : "text-white/70 hover:text-primary"
               }`}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/contact">
+          <Link href="/contact">
             <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-none px-8">
               LET'S TALK
             </Button>
@@ -81,16 +84,16 @@ export function Navbar() {
                     transition={{ delay: i * 0.1 }}
                   >
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className={`text-4xl font-heading font-bold transition-colors ${
-                        location.pathname === link.href ? "text-primary" : "hover:text-primary"
+                        pathname === link.href ? "text-primary" : "hover:text-primary"
                       }`}
                     >
                       {link.name}
                     </Link>
                   </motion.div>
                 ))}
-                <Link to="/contact">
+                <Link href="/contact">
                   <Button className="bg-primary text-white rounded-none w-full py-8 text-xl mt-4">
                     GET IN TOUCH
                   </Button>

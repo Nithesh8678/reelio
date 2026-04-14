@@ -1,9 +1,12 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function Preloader() {
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [logoReady, setLogoReady] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,9 +36,20 @@ export function Preloader() {
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-8xl md:text-[12rem] font-heading font-bold text-white tracking-tighter"
+              className="flex items-center justify-center"
             >
-              REELIO<span className="text-primary">.</span>
+              {logoReady ? (
+                <img
+                  src="/brand/logo-text.png"
+                  alt="Reelio"
+                  className="w-[290px] md:w-[560px] h-auto"
+                  onError={() => setLogoReady(false)}
+                />
+              ) : (
+                <span className="text-7xl md:text-[10rem] font-heading font-bold text-white tracking-tighter">
+                  REELIO<span className="text-primary">.</span>
+                </span>
+              )}
             </motion.div>
             
             <div className="absolute -bottom-12 left-0 w-full flex items-center justify-between px-2">

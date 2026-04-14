@@ -1,3 +1,5 @@
+"use client";
+
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Offerings as OfferingsSection } from "@/components/sections/Offerings";
 import { motion } from "motion/react";
@@ -15,21 +17,27 @@ export default function Offerings() {
       <div className="pt-32">
         <OfferingsSection />
 
-        {/* Process Section */}
-        <section className="py-32 bg-reelio-dark">
+        <section className="py-32 bg-reelio-dark/80">
           <div className="container mx-auto px-6">
             <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-24 text-center">Our Process</h2>
             
             <div className="grid md:grid-cols-4 gap-8">
               {steps.map((item, i) => (
-                <div key={item.step} className="relative group">
-                  <div className="text-8xl font-heading font-bold text-white/5 mb-8 group-hover:text-primary/20 transition-colors duration-500">
+                <motion.div
+                  key={item.step}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative group overflow-hidden border border-white/10 bg-white/[0.02] p-7"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative z-10 mb-8 text-8xl font-heading font-bold text-white/10 group-hover:text-primary/35 transition-colors duration-500">
                     {item.step}
                   </div>
-                  <h4 className="text-2xl font-heading font-bold text-white mb-4">{item.title}</h4>
-                  <p className="text-white/40 leading-relaxed">{item.desc}</p>
-                  <div className="absolute top-0 left-0 w-full h-[1px] bg-white/10" />
-                </div>
+                  <h4 className="relative z-10 mb-4 text-2xl font-heading font-bold text-white">{item.title}</h4>
+                  <p className="relative z-10 text-white/55 leading-relaxed">{item.desc}</p>
+                </motion.div>
               ))}
             </div>
           </div>
