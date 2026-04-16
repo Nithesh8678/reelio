@@ -46,7 +46,7 @@ export function Preloader() {
                   onError={() => setLogoReady(false)}
                 />
               ) : (
-                <span className="text-7xl md:text-[10rem] font-heading font-bold text-white tracking-tighter">
+                <span className="brand-wordmark text-7xl md:text-[10rem] text-white">
                   REELIO<span className="text-primary">.</span>
                 </span>
               )}

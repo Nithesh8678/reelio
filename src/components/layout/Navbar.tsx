@@ -18,6 +18,7 @@ const navLinks = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [logoReady, setLogoReady] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -38,12 +39,18 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
-            <span className="text-white font-bold text-xl">R</span>
-          </div>
-          <span className="text-2xl font-heading font-bold tracking-tighter text-white">
-            REELIO<span className="text-primary">.</span>
-          </span>
+          {logoReady ? (
+            <img
+              src="/brand/logo-text.png"
+              alt="Reelio"
+              className="h-10 md:h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
+              onError={() => setLogoReady(false)}
+            />
+          ) : (
+            <span className="brand-wordmark text-3xl text-white">
+              REELIO<span className="text-primary">.</span>
+            </span>
+          )}
         </Link>
 
         {/* Desktop Nav */}

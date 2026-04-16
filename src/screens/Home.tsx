@@ -2,6 +2,7 @@
 
 import { Hero } from "@/components/sections/Hero";
 import { CollaboratorsTicker } from "@/components/sections/CollaboratorsTicker";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
@@ -65,6 +66,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
     </PageTransition>
   );
 }

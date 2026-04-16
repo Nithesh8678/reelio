@@ -5,13 +5,13 @@ import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { whatsappUrl } from "@/content/site-content";
+import { contactDetails, whatsappUrl } from "@/content/site-content";
 
 export function Contact() {
   return (
     <section id="contact" className="py-32 bg-reelio-black relative overflow-hidden">
       {/* Decorative background text */}
-      <div className="absolute -bottom-20 -right-20 text-[20rem] font-heading font-bold text-white/[0.02] select-none pointer-events-none">
+      <div className="brand-wordmark absolute -bottom-20 -right-20 text-[20rem] font-bold text-white/[0.02] select-none pointer-events-none">
         REELIO
       </div>
 
@@ -32,7 +32,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Email us</div>
-                  <div className="text-xl text-white font-medium">hello@reelio.agency</div>
+                  <div className="text-xl text-white font-medium">{contactDetails.email}</div>
                 </div>
               </div>
 
@@ -42,7 +42,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Call us</div>
-                  <div className="text-xl text-white font-medium">+1 (555) 123-4567</div>
+                  <div className="text-xl text-white font-medium">{contactDetails.phone}</div>
                 </div>
               </div>
 
@@ -69,7 +69,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-white/40 mb-1">Visit us</div>
-                  <div className="text-xl text-white font-medium">77 Creative Way, NY 10013</div>
+                  <div className="text-xl text-white font-medium">{contactDetails.address}</div>
                 </div>
               </div>
             </div>

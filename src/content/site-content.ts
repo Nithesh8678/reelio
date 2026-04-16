@@ -22,9 +22,136 @@ export type WorkItem = {
   image: string;
 };
 
+export type CustomerNameItem = {
+  name: string;
+  accent: string;
+};
+
+export type TestimonialItem = {
+  id: string;
+  quote: string;
+  author: string;
+  role: string;
+  company: string;
+  accent: string;
+};
+
+export type AboutMetricItem = {
+  label: string;
+  value: string;
+};
+
+export type CorePhilosophyItem = {
+  id: string;
+  title: string;
+  description: string;
+  accent: string;
+};
+
 export const instagramUrl = "https://instagram.com/reelio.agency";
 
 export const whatsappUrl = "https://wa.me/15551234567";
+
+export const contactDetails = {
+  email: "letstalk@reelio.co.in",
+  phone: "+91 90000 00000",
+  address: "No. 21, Nungambakkam High Road, Chennai 600034",
+};
+
+export const socialUrls = {
+  instagram: instagramUrl,
+  twitter: "#",
+  linkedin: "#",
+  github: "#",
+};
+
+export const existingCustomers: CustomerNameItem[] = [
+  { name: "NOVA PAY", accent: "#22D3EE" },
+  { name: "ASTER LIVING", accent: "#FB923C" },
+  { name: "PULSE ENERGY", accent: "#A78BFA" },
+  { name: "FINORBIT", accent: "#FB7185" },
+  { name: "GROWTHDOCK", accent: "#A3E635" },
+  { name: "VERDANT LABS", accent: "#60A5FA" },
+];
+
+export const testimonials: TestimonialItem[] = [
+  {
+    id: "a1",
+    quote:
+      "reelio rebuilt our short-form engine from scratch. In 90 days, we went from inconsistent uploads to a predictable inbound pipeline.",
+    author: "Anika Raman",
+    role: "Marketing Lead",
+    company: "NOVA PAY",
+    accent: "#22D3EE",
+  },
+  {
+    id: "a2",
+    quote:
+      "The team blends creative instinct with hard numbers. Every campaign had a measurable goal and a clear feedback loop.",
+    author: "Rahul Menon",
+    role: "Founder",
+    company: "PULSE ENERGY",
+    accent: "#FB7185",
+  },
+  {
+    id: "a3",
+    quote:
+      "What stood out was execution speed. Strategy, production, edits, and distribution were all synced and frictionless.",
+    author: "Meera S",
+    role: "Brand Director",
+    company: "ASTER LIVING",
+    accent: "#A3E635",
+  },
+];
+
+export const aboutCopy = {
+  intro:
+    "At reelio, we believe digital marketing is not just about going viral, but about staying relevant. We have built our foundation at the intersection of creativeness and the numbers.",
+  supporting:
+    "We are a Chennai based growth partner specializing in high impact short-form content. Our team combines the flair of social storytelling with the rigor of deep cycle analytics that will help take your brand to the next level.",
+  fullCycle:
+    "Full-cycle partner for brands to navigate the current digital landscape with content, short form marketing excellence and analytics.",
+  origin:
+    "reelio was born from a group of creative minds that understand your business, combined with high-end creative production that ensures your brand gets the required visibility to exceed your revenue targets.",
+};
+
+export const aboutMetrics: AboutMetricItem[] = [
+  { value: "1000+", label: "Projects" },
+  { value: "50+", label: "Clients" },
+  { value: "50X", label: "Leads" },
+  { value: "5x", label: "ROI" },
+];
+
+export const corePhilosophy: CorePhilosophyItem[] = [
+  {
+    id: "engine",
+    title: "The Engine",
+    description:
+      "We handle the heavy lifting of production, from thumb stopping scripts and creative direction to high quality shooting and editing.",
+    accent: "#22D3EE",
+  },
+  {
+    id: "precision",
+    title: "Creative Precision",
+    description:
+      "Edited to perfection, every reel, video or post is designed with a specific conversion goal in mind.",
+    accent: "#FB7185",
+  },
+  {
+    id: "intelligence",
+    title: "The Intelligence",
+    description:
+      "We use sentiment analysis, AIEO and SEO to ensure your brand is found by those who matter.",
+    accent: "#A78BFA",
+  },
+  {
+    id: "outcome",
+    title: "The Outcome",
+    description:
+      "Human centric growth, with communities lasting a lifetime rather than just Likes and Follows.",
+    accent: "#A3E635",
+  },
+];
 
 export const collaboratorTags: CollaboratorTag[] = [
   { name: "Northlane Ventures", accent: "#E31E24" },

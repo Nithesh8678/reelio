@@ -121,4 +121,11 @@
   .text-glow {
     text-shadow: 0 0 20px rgba(227, 30, 36, 0.3);
   }
+
+  .brand-wordmark {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
 }

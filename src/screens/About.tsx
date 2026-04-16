@@ -3,25 +3,15 @@
 import { PageTransition } from "@/components/layout/PageTransition";
 import { About as AboutSection } from "@/components/sections/About";
 import { motion } from "motion/react";
-import { whatsappUrl } from "@/content/site-content";
+import { Cog, Lightbulb, BrainCircuit, ClipboardCheck } from "lucide-react";
+import { aboutCopy, aboutMetrics, corePhilosophy } from "@/content/site-content";
 
-const values = [
-  {
-    title: "Boldness",
-    kicker: "Lead Value",
-    desc: "We move before consensus. Boldness is how we unlock category attention for brands that want to lead, not follow.",
-  },
-  {
-    title: "Precision",
-    kicker: "Execution Standard",
-    desc: "Every frame, headline, and CTA is mapped to a measurable objective. Art direction with analytical intent.",
-  },
-  {
-    title: "Impact",
-    kicker: "Business Outcome",
-    desc: "Creative only counts when it changes outcomes. We optimize for influence, conversion, and long-term brand equity.",
-  },
-];
+const philosophyIconMap = {
+  engine: Cog,
+  precision: Lightbulb,
+  intelligence: BrainCircuit,
+  outcome: ClipboardCheck,
+};
 
 export default function About() {
   return (
@@ -31,71 +21,89 @@ export default function About() {
 
         <section className="border-t border-white/5 bg-reelio-black py-32">
           <div className="container mx-auto px-6">
-            <div className="mb-16 max-w-3xl">
-              <p className="mb-5 text-sm font-bold tracking-[0.4em] text-primary uppercase">Manifesto</p>
+            <div className="grid gap-8 md:grid-cols-12 md:items-start">
+              <motion.article
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                className="border border-white/10 bg-white/[0.03] p-8 md:col-span-7 md:p-10"
+              >
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">Full-cycle partner</p>
+                <p className="text-2xl font-heading font-bold leading-tight text-white md:text-4xl">
+                  {aboutCopy.fullCycle}
+                </p>
+              </motion.article>
+
+              <motion.article
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ delay: 0.1 }}
+                className="border border-white/10 bg-white/[0.02] p-8 md:col-span-5 md:p-10"
+              >
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">How reelio started</p>
+                <p className="text-white/70 leading-relaxed">{aboutCopy.origin}</p>
+              </motion.article>
+            </div>
+
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {aboutMetrics.map((item, idx) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.08 }}
+                  className="border border-white/10 bg-reelio-dark px-6 py-7"
+                >
+                  <p className="mb-2 text-4xl font-heading font-bold text-white">{item.value}</p>
+                  <p className="text-xs uppercase tracking-[0.26em] text-white/45">{item.label}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden border-t border-white/5 bg-reelio-dark py-32">
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 12% 10%, rgba(34,211,238,0.18), transparent 38%), radial-gradient(circle at 88% 80%, rgba(251,113,133,0.18), transparent 40%)",
+            }}
+          />
+
+          <div className="container relative mx-auto px-6">
+            <div className="mb-14 max-w-3xl">
+              <p className="mb-5 text-sm font-bold tracking-[0.4em] text-primary uppercase">Core Philosophy</p>
               <h2 className="text-4xl md:text-6xl font-heading font-bold leading-tight text-white">
-                BUILT FOR BRANDS THAT
-                <span className="block italic text-primary">REFUSE AVERAGE</span>
+                THE SYSTEM THAT POWERS
+                <span className="block italic text-primary">REELIO EXECUTION</span>
               </h2>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-12">
-              {values.map((value, i) => {
-                const isLead = i === 0;
+            <div className="grid gap-6 md:grid-cols-2">
+              {corePhilosophy.map((item, i) => {
+                const Icon = philosophyIconMap[item.id as keyof typeof philosophyIconMap] ?? Cog;
 
                 return (
                   <motion.article
-                    key={value.title}
+                    key={item.id}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
-                    transition={{ delay: i * 0.12 }}
-                    className={`relative overflow-hidden border border-white/10 p-8 md:p-10 ${
-                      isLead
-                        ? "md:col-span-7 bg-gradient-to-br from-primary/20 via-primary/8 to-transparent"
-                        : "md:col-span-5 bg-white/[0.02]"
-                    }`}
+                    transition={{ delay: i * 0.1 }}
+                    className="relative overflow-hidden border border-white/10 bg-black/35 p-8 md:p-10"
+                    style={{ boxShadow: `inset 0 0 0 1px ${item.accent}4D` }}
                   >
-                    <div className="mb-5 text-[11px] uppercase tracking-[0.28em] text-white/60">{value.kicker}</div>
-                    <h3 className={`mb-6 font-heading font-bold ${isLead ? "text-5xl md:text-6xl text-white" : "text-3xl text-primary"}`}>
-                      {value.title}
-                    </h3>
-                    <p className={`leading-relaxed ${isLead ? "max-w-xl text-white/85 text-lg" : "text-white/70"}`}>
-                      {value.desc}
-                    </p>
-
-                    {isLead ? (
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-8 inline-flex items-center gap-3 border border-primary/60 px-5 py-3 text-xs font-bold uppercase tracking-[0.28em] text-white transition-colors hover:bg-primary"
-                      >
-                        Talk on WhatsApp
-                      </a>
-                    ) : null}
+                    <div className="mb-6 inline-flex items-center justify-center border p-3" style={{ borderColor: `${item.accent}88` }}>
+                      <Icon className="h-6 w-6" style={{ color: item.accent }} />
+                    </div>
+                    <h3 className="mb-4 text-3xl font-heading font-bold text-white">{item.title}</h3>
+                    <p className="leading-relaxed text-white/75">{item.description}</p>
                   </motion.article>
                 );
               })}
-            </div>
-
-            <div className="mt-16 grid gap-6 border-t border-white/10 pt-12 md:grid-cols-3">
-              {[
-                "Strategy in 48h, not 4 weeks",
-                "Creative systems, not one-off campaigns",
-                "Performance visibility from day one",
-              ].map((line, idx) => (
-                <motion.div
-                  key={line}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="text-sm uppercase tracking-[0.22em] text-white/60"
-                >
-                  {line}
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>

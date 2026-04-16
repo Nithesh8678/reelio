@@ -1,13 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-
-const stats = [
-  { label: "Projects Completed", value: "250+" },
-  { label: "Global Clients", value: "80+" },
-  { label: "Awards Won", value: "15" },
-  { label: "ROI Average", value: "3.5x" },
-];
+import { aboutCopy, aboutMetrics } from "@/content/site-content";
 
 export function About() {
   return (
@@ -22,14 +16,18 @@ export function About() {
           >
             <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Who we are</h2>
             <h3 className="text-4xl md:text-6xl font-heading font-bold text-white mb-8 leading-tight">
-              A collective of <span className="italic text-primary">visionaries</span> and data scientists.
+              CREATIVENESS + NUMBERS.
+              <span className="block italic text-primary">RELEVANCE OVER VIRALITY.</span>
             </h3>
-            <p className="text-xl text-white/60 leading-relaxed mb-12">
-              Founded in 2018, Reelio was born from a simple observation: most marketing lacks substance, and most content lacks strategy. We bridged that gap by combining high-end creative production with rigorous analytical frameworks.
+            <p className="text-lg text-white/70 leading-relaxed mb-6 max-w-2xl">
+              {aboutCopy.intro}
+            </p>
+            <p className="text-lg text-white/62 leading-relaxed mb-12 max-w-2xl">
+              {aboutCopy.supporting}
             </p>
             
             <div className="grid grid-cols-2 gap-12">
-              {stats.map((stat, i) => (
+              {aboutMetrics.map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}

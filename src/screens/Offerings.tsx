@@ -5,40 +5,82 @@ import { Offerings as OfferingsSection } from "@/components/sections/Offerings";
 import { motion } from "motion/react";
 
 const steps = [
-  { step: "01", title: "Discovery", desc: "Deep dive into your brand DNA and market landscape." },
-  { step: "02", title: "Strategy", desc: "Crafting a data-backed roadmap for digital dominance." },
-  { step: "03", title: "Execution", desc: "High-end production and performance marketing launch." },
-  { step: "04", title: "Optimization", desc: "Continuous analysis and scaling for maximum ROI." },
+  {
+    step: "01",
+    title: "Signal Capture",
+    desc: "We ingest your market pulse, audience behavior, and founder narrative into one command map.",
+  },
+  {
+    step: "02",
+    title: "Orbit Design",
+    desc: "Creative systems are engineered with channel-specific arcs so every format amplifies the next.",
+  },
+  {
+    step: "03",
+    title: "Ignition",
+    desc: "Campaigns, content, and paid loops launch in synchronized waves to maximize relevance windows.",
+  },
+  {
+    step: "04",
+    title: "Gravity Control",
+    desc: "We tune retention, conversion, and authority scores continuously for compounding growth.",
+  },
 ];
 
 export default function Offerings() {
   return (
     <PageTransition>
-      <div className="pt-32">
+      <div className="bg-reelio-black pt-28 md:pt-32">
         <OfferingsSection />
 
-        <section className="py-32 bg-reelio-dark/80">
-          <div className="container mx-auto px-6">
-            <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-24 text-center">Our Process</h2>
-            
-            <div className="grid md:grid-cols-4 gap-8">
-              {steps.map((item, i) => (
-                <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="relative group overflow-hidden border border-white/10 bg-white/[0.02] p-7"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative z-10 mb-8 text-8xl font-heading font-bold text-white/10 group-hover:text-primary/35 transition-colors duration-500">
-                    {item.step}
-                  </div>
-                  <h4 className="relative z-10 mb-4 text-2xl font-heading font-bold text-white">{item.title}</h4>
-                  <p className="relative z-10 text-white/55 leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
+        <section className="relative overflow-hidden py-28 md:py-32">
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 0%, rgba(227,30,36,0.22), transparent 42%), radial-gradient(circle at 80% 80%, rgba(34,211,238,0.16), transparent 46%)",
+            }}
+          />
+
+          <div className="container relative mx-auto px-6">
+            <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
+              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.38em] text-primary">Launch Sequence</p>
+              <h2 className="text-4xl font-heading font-bold leading-[0.9] text-white md:text-6xl">
+                FROM FIRST SIGNAL TO
+                <span className="block italic text-primary">MARKET GRAVITY</span>
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-sm uppercase tracking-[0.22em] text-white/50">
+                A high-precision workflow built to keep narrative, distribution, and performance in sync.
+              </p>
+            </div>
+
+            <div className="relative mx-auto max-w-5xl">
+              <div className="pointer-events-none absolute left-4 top-0 h-full w-px bg-gradient-to-b from-transparent via-white/30 to-transparent md:left-1/2" />
+
+              <div className="grid gap-8 md:gap-10">
+                {steps.map((item, i) => {
+                  const isRight = i % 2 === 1;
+
+                  return (
+                    <motion.div
+                      key={item.step}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.45, delay: i * 0.08 }}
+                      className={`relative md:flex ${isRight ? "md:justify-end" : ""}`}
+                    >
+                      <span className="absolute left-4 top-7 z-10 h-3 w-3 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_20px_rgba(227,30,36,0.8)] md:left-1/2" />
+
+                      <article className="ml-10 border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm md:ml-0 md:w-[46%] md:p-7">
+                        <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-white/55">Vector {item.step}</p>
+                        <h3 className="mb-3 text-2xl font-heading font-bold text-white">{item.title}</h3>
+                        <p className="leading-relaxed text-white/65">{item.desc}</p>
+                      </article>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>

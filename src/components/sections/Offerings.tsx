@@ -2,17 +2,36 @@
 
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Clapperboard, Mic2, Megaphone, Speech, Sparkles, UserRound } from "lucide-react";
+import {
+  Clapperboard,
+  Mic2,
+  Megaphone,
+  Orbit,
+  Radio,
+  Sparkles,
+  Speech,
+  UserRound,
+} from "lucide-react";
 import { offeringsContent } from "@/content/site-content";
 
 const iconMap = {
-  pulse: Sparkles,
+  pulse: Radio,
   feature: Clapperboard,
   voice: Mic2,
   catalyst: Megaphone,
   insights: Speech,
   persona: UserRound,
 };
+
+const orbLabels = ["Signal Scan", "Orbit Lock", "Creative Boost", "Launch Window"];
+
+function withAlpha(hex: string, alpha: string) {
+  if (hex.startsWith("#") && hex.length === 7) {
+    return `${hex}${alpha}`;
+  }
+
+  return hex;
+}
 
 export function Offerings() {
   const [activeId, setActiveId] = useState(offeringsContent[0]?.id ?? "pulse");
@@ -23,100 +42,173 @@ export function Offerings() {
   );
 
   return (
-    <section id="offerings" className="py-32 bg-reelio-black">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-          <div className="max-w-2xl">
-            <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Our Offerings</h2>
-            <h3 className="text-4xl md:text-7xl font-heading font-bold text-white leading-none">
-              OFFERINGS BUILT TO <br />
-              <span className="text-primary italic">SCALE AUTHORITY</span>.
-            </h3>
+    <section id="offerings" className="relative overflow-hidden bg-reelio-black py-24 md:py-32">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 15% 15%, rgba(34,211,238,0.15), transparent 42%), radial-gradient(circle at 82% 20%, rgba(251,113,133,0.12), transparent 40%), radial-gradient(circle at 50% 85%, rgba(163,230,53,0.1), transparent 45%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at center, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          maskImage: "linear-gradient(to bottom, transparent, black 18%, black 82%, transparent)",
+        }}
+      />
+
+      <div className="container relative mx-auto px-6">
+        <div className="mb-14 flex flex-col gap-8 md:mb-16 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.38em] text-primary">Orbital Offerings Deck</p>
+            <h2 className="text-4xl font-heading font-bold leading-[0.88] text-white md:text-7xl">
+              A COSMIC MENU OF
+              <span className="block italic text-primary">GROWTH MACHINES</span>
+            </h2>
           </div>
-          <p className="text-white/40 max-w-xs text-sm uppercase tracking-widest leading-relaxed">
-            Click any service card to open a detailed execution brief.
+          <p className="max-w-sm text-sm uppercase tracking-[0.24em] text-white/55">
+            Select a node to open its mission protocol. Built for velocity, authority, and conversion.
           </p>
         </div>
 
-        <div className="grid border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
-          {offeringsContent.map((offering, i) => {
-            const Icon = iconMap[offering.id as keyof typeof iconMap] ?? Sparkles;
-            const isActive = offering.id === activeId;
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-4">
+            <div className="grid gap-3">
+              {offeringsContent.map((offering, index) => {
+                const Icon = iconMap[offering.id as keyof typeof iconMap] ?? Sparkles;
+                const isActive = offering.id === activeId;
 
-            return (
-              <motion.button
-                type="button"
-                key={offering.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-                onClick={() => setActiveId(offering.id)}
-                className="group relative overflow-hidden border-r border-b border-white/10 bg-reelio-black p-8 text-left transition-colors duration-300 hover:bg-reelio-dark md:p-10"
-                style={{
-                  boxShadow: isActive ? `inset 0 0 0 1px ${offering.accent}` : undefined,
-                  backgroundImage: isActive
-                    ? `linear-gradient(145deg, ${offering.accent}22, rgba(0,0,0,0) 45%)`
-                    : undefined,
-                }}
-              >
-                <div
-                  className="absolute top-0 left-0 h-1 w-full"
-                  style={{ backgroundColor: isActive ? offering.accent : `${offering.accent}66` }}
-                />
-
-                <Icon className="mb-7 h-9 w-9" style={{ color: offering.accent }} />
-
-                <p className="mb-3 text-[11px] uppercase tracking-[0.3em] text-white/50">{offering.label}</p>
-                <h4 className="mb-4 text-2xl font-heading font-bold text-white">{offering.title}</h4>
-                <p className="leading-relaxed text-white/70">{offering.shortDescription}</p>
-
-                <div className="mt-8 flex items-center gap-2 text-[11px] uppercase tracking-[0.24em]" style={{ color: offering.accent }}>
-                  View details
-                  <span className="h-px w-8" style={{ backgroundColor: offering.accent }} />
-                </div>
-              </motion.button>
-            );
-          })}
-        </div>
-
-        <AnimatePresence mode="wait">
-          {activeOffering ? (
-            <motion.div
-              key={activeOffering.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 16 }}
-              transition={{ duration: 0.32 }}
-              className="mt-10 border border-white/10 bg-reelio-dark p-8 md:p-10"
-              style={{ boxShadow: `inset 0 0 0 1px ${activeOffering.accent}4D` }}
-            >
-              <div className="grid gap-10 md:grid-cols-12 md:items-start">
-                <div className="md:col-span-5">
-                  <p className="mb-3 text-[11px] uppercase tracking-[0.3em]" style={{ color: activeOffering.accent }}>
-                    Detailed Scope
-                  </p>
-                  <h5 className="mb-4 text-3xl md:text-4xl font-heading font-bold text-white">{activeOffering.title}</h5>
-                  <p className="text-white/70 leading-relaxed">{activeOffering.longDescription}</p>
-                </div>
-
-                <div className="md:col-span-7">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {activeOffering.bullets.map((item) => (
+                return (
+                  <motion.button
+                    key={offering.id}
+                    type="button"
+                    onClick={() => setActiveId(offering.id)}
+                    whileHover={{ x: 6 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative overflow-hidden border border-white/10 px-5 py-4 text-left backdrop-blur-sm transition-colors duration-300"
+                    style={{
+                      backgroundColor: isActive ? withAlpha(offering.accent, "20") : "rgba(255,255,255,0.03)",
+                      boxShadow: isActive ? `0 0 0 1px ${withAlpha(offering.accent, "80")}` : "none",
+                    }}
+                  >
+                    <div className="flex items-start gap-4">
                       <div
-                        key={item}
-                        className="border border-white/10 px-4 py-4 text-sm text-white/80"
-                        style={{ backgroundColor: `${activeOffering.accent}1A` }}
+                        className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full border"
+                        style={{
+                          borderColor: withAlpha(offering.accent, "80"),
+                          backgroundColor: withAlpha(offering.accent, isActive ? "30" : "16"),
+                        }}
                       >
-                        {item}
+                        <Icon className="h-4 w-4" style={{ color: offering.accent }} />
                       </div>
+                      <div className="flex-1">
+                        <p className="mb-1 text-[10px] uppercase tracking-[0.26em] text-white/50">
+                          Node {String(index + 1).padStart(2, "0")}
+                        </p>
+                        <p className="text-lg font-heading font-bold text-white">{offering.title}</p>
+                        <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/55">{offering.label}</p>
+                      </div>
+                    </div>
+                  </motion.button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="relative lg:col-span-8">
+            <AnimatePresence mode="wait">
+              {activeOffering ? (
+                <motion.article
+                  key={activeOffering.id}
+                  initial={{ opacity: 0, y: 22 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 14 }}
+                  transition={{ duration: 0.35 }}
+                  className="relative overflow-hidden border border-white/15 bg-reelio-dark/80 p-7 backdrop-blur-sm md:p-10"
+                  style={{
+                    boxShadow: `inset 0 0 0 1px ${withAlpha(activeOffering.accent, "66")}`,
+                  }}
+                >
+                  <div
+                    className="pointer-events-none absolute -right-32 -top-28 h-72 w-72 rounded-full blur-3xl"
+                    style={{ backgroundColor: withAlpha(activeOffering.accent, "4D") }}
+                  />
+                  <div className="pointer-events-none absolute -left-24 -bottom-24 h-60 w-60 rounded-full border border-white/10" />
+                  <div className="pointer-events-none absolute left-[20%] top-[24%] h-52 w-52 rounded-full border border-white/10" />
+                  <div className="pointer-events-none absolute left-[40%] top-[15%] h-80 w-80 rounded-full border border-white/8" />
+
+                  <div className="relative z-10 grid gap-8 md:grid-cols-12 md:items-start">
+                    <div className="md:col-span-7">
+                      <div className="mb-5 inline-flex items-center gap-2 border border-white/15 bg-black/35 px-4 py-2 text-[10px] uppercase tracking-[0.24em] text-white/70">
+                        <Orbit className="h-3.5 w-3.5" style={{ color: activeOffering.accent }} />
+                        Mission Protocol Live
+                      </div>
+                      <h3 className="mb-4 text-3xl font-heading font-bold leading-tight text-white md:text-5xl">
+                        {activeOffering.title}
+                      </h3>
+                      <p className="mb-5 max-w-2xl text-base leading-relaxed text-white/75">
+                        {activeOffering.shortDescription}
+                      </p>
+                      <p className="max-w-2xl text-sm leading-relaxed text-white/62 md:text-base">
+                        {activeOffering.longDescription}
+                      </p>
+                    </div>
+
+                    <div className="md:col-span-5">
+                      <div className="grid gap-3">
+                        {orbLabels.map((label, i) => (
+                          <div
+                            key={label}
+                            className="border border-white/10 px-4 py-3 text-xs uppercase tracking-[0.22em] text-white/65"
+                            style={{ backgroundColor: withAlpha(activeOffering.accent, i % 2 === 0 ? "1A" : "12") }}
+                          >
+                            {label}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 mt-8 grid gap-3 sm:grid-cols-2">
+                    {activeOffering.bullets.map((item) => (
+                      <motion.div
+                        key={item}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="flex items-center gap-3 border border-white/10 px-4 py-3 text-sm text-white/85"
+                        style={{ backgroundColor: withAlpha(activeOffering.accent, "14") }}
+                      >
+                        <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: activeOffering.accent }} />
+                        {item}
+                      </motion.div>
                     ))}
                   </div>
-                </div>
-              </div>
+                </motion.article>
+              ) : null}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {offeringsContent.slice(0, 3).map((offering, i) => (
+            <motion.div
+              key={offering.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: i * 0.08 }}
+              className="border border-white/10 bg-white/[0.03] p-5"
+            >
+              <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-white/50">{offering.label}</p>
+              <p className="mb-3 text-xl font-heading font-bold text-white">{offering.title}</p>
+              <p className="text-sm leading-relaxed text-white/60">{offering.shortDescription}</p>
             </motion.div>
-          ) : null}
-        </AnimatePresence>
+          ))}
+        </div>
       </div>
     </section>
   );
