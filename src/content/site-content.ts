@@ -20,6 +20,7 @@ export type WorkItem = {
   year: string;
   summary: string;
   image: string;
+  vimeoEmbedUrl?: string;
 };
 
 export type CustomerNameItem = {
@@ -78,7 +79,7 @@ export const testimonials: TestimonialItem[] = [
   {
     id: "a1",
     quote:
-      "reelio rebuilt our short-form engine from scratch. In 90 days, we went from inconsistent uploads to a predictable inbound pipeline.",
+      "Reelio rebuilt our short-form engine from scratch. In 90 days, we went from inconsistent uploads to a predictable inbound pipeline.",
     author: "Anika Raman",
     role: "Marketing Lead",
     company: "NOVA PAY",
@@ -249,6 +250,8 @@ export const homeWorks: WorkItem[] = [
     year: "2026",
     summary: "From first teaser to conversion campaign in six weeks for a fintech scale-up.",
     image: "https://picsum.photos/seed/atlaswork/1600/1000",
+    vimeoEmbedUrl:
+      "https://player.vimeo.com/video/1183963937?badge=0&autopause=0&player_id=0&app_id=58479",
   },
   {
     id: "nova",
@@ -257,6 +260,8 @@ export const homeWorks: WorkItem[] = [
     year: "2026",
     summary: "Executive-led video and podcast system that tripled qualified inbound conversations.",
     image: "https://picsum.photos/seed/novawork/1600/1000",
+    vimeoEmbedUrl:
+      "https://player.vimeo.com/video/1183963998?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
   },
   {
     id: "linea",
@@ -265,6 +270,8 @@ export const homeWorks: WorkItem[] = [
     year: "2025",
     summary: "Cross-platform ad creative engine tuned for CAC efficiency and sustained ROAS gains.",
     image: "https://picsum.photos/seed/lineawork/1600/1000",
+    vimeoEmbedUrl:
+      "https://player.vimeo.com/video/1183963980?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
   },
 ];
 
@@ -276,6 +283,8 @@ export const resourcesWorks: WorkItem[] = [
     year: "2026",
     summary: "A cinematic founder story crafted for YouTube and executive events.",
     image: "https://picsum.photos/seed/operatorfilm/1200/800",
+    vimeoEmbedUrl:
+      "https://player.vimeo.com/video/1183963937?badge=0&autopause=0&player_id=0&app_id=58479",
   },
   {
     id: "signal-room",
@@ -284,6 +293,8 @@ export const resourcesWorks: WorkItem[] = [
     year: "2026",
     summary: "Weekly thought-leadership format distributed across Spotify, YouTube, and Shorts.",
     image: "https://picsum.photos/seed/signalroom/1200/800",
+    vimeoEmbedUrl:
+      "https://player.vimeo.com/video/1183963998?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
   },
   {
     id: "motion-lab",
@@ -292,5 +303,7 @@ export const resourcesWorks: WorkItem[] = [
     year: "2025",
     summary: "Ad concept library with rapid testing loops and measurable conversion lift.",
     image: "https://picsum.photos/seed/motionlab/1200/800",
+    vimeoEmbedUrl:
+      "https://player.vimeo.com/video/1183963980?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
   },
 ];
