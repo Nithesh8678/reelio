@@ -8,7 +8,7 @@ export function Resources() {
     <section id="resources" className="py-32 bg-reelio-dark">
       <div className="container mx-auto px-6">
         <div className="text-center mb-24 max-w-3xl mx-auto">
-          <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Our Works</h2>
+          <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Our Creations</h2>
           <h3 className="text-4xl md:text-6xl font-heading font-bold text-white mb-8">
             RECENT BUILDS & <span className="italic text-primary">CASE MOMENTS</span>
           </h3>

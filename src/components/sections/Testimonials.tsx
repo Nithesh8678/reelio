@@ -29,7 +29,7 @@ export function Testimonials() {
             href="/resources"
             className="group inline-flex items-center gap-3 border border-white/20 px-5 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/75 transition-colors hover:border-primary hover:text-primary"
           >
-            Explore resources
+            Explore Our Creations
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

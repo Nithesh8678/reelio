@@ -30,7 +30,7 @@ const steps = [
 export default function Offerings() {
   return (
     <PageTransition>
-      <div className="bg-reelio-black pt-28 md:pt-32">
+      <div className="bg-reelio-black">
         <OfferingsSection />
 
         <section className="relative overflow-hidden py-28 md:py-32">

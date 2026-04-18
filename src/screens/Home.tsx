@@ -9,6 +9,8 @@ import { ArrowRight } from "lucide-react";
 import { homeWorks } from "@/content/site-content";
 
 export default function Home() {
+  const isTwoCardLayout = homeWorks.length === 2;
+
   return (
     <PageTransition>
       <Hero />
@@ -33,8 +35,10 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-12">
             {homeWorks.map((work, i) => {
               const hasVideo = Boolean(work.vimeoEmbedUrl);
-              const spanClass = hasVideo
-                ? "md:col-span-4"
+              const spanClass = isTwoCardLayout
+                ? "md:col-span-6"
+                : hasVideo
+                  ? "md:col-span-4"
                 : i === 0
                   ? "md:col-span-7"
                   : i === 2

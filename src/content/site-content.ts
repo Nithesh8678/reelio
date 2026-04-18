@@ -11,6 +11,7 @@ export type OfferingItem = {
   longDescription: string;
   bullets: string[];
   accent: string;
+  image: string;
 };
 
 export type WorkItem = {
@@ -21,6 +22,13 @@ export type WorkItem = {
   summary: string;
   image: string;
   vimeoEmbedUrl?: string;
+};
+
+export type GearItem = {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
 };
 
 export type CustomerNameItem = {
@@ -55,8 +63,10 @@ export const whatsappUrl = "https://wa.me/15551234567";
 
 export const contactDetails = {
   email: "letstalk@reelio.co.in",
-  phone: "+91 90000 00000",
-  address: "No. 21, Nungambakkam High Road, Chennai 600034",
+  phone: "+91 63856 66442",
+  addressLine1: "No. 21, Nungambakkam High Road",
+  addressLine2: "Chennai 600056",
+  address: "No. 21, Nungambakkam High Road, Chennai 600056",
 };
 
 export const socialUrls = {
@@ -107,13 +117,13 @@ export const testimonials: TestimonialItem[] = [
 
 export const aboutCopy = {
   intro:
-    "At reelio, we believe digital marketing is not just about going viral, but about staying relevant. We have built our foundation at the intersection of creativeness and the numbers.",
+    "At Reelio, we believe digital marketing is not just about going viral, but about staying relevant. We have built our foundation at the intersection of creativeness and the numbers.",
   supporting:
     "We are a Chennai based growth partner specializing in high impact short-form content. Our team combines the flair of social storytelling with the rigor of deep cycle analytics that will help take your brand to the next level.",
   fullCycle:
     "Full-cycle partner for brands to navigate the current digital landscape with content, short form marketing excellence and analytics.",
   origin:
-    "reelio was born from a group of creative minds that understand your business, combined with high-end creative production that ensures your brand gets the required visibility to exceed your revenue targets.",
+    "Reelio was born from a group of creative minds that understand your business, combined with high-end creative production that ensures your brand gets the required visibility to exceed your revenue targets.",
 };
 
 export const aboutMetrics: AboutMetricItem[] = [
@@ -168,22 +178,23 @@ export const collaboratorTags: CollaboratorTag[] = [
 export const offeringsContent: OfferingItem[] = [
   {
     id: "pulse",
-    title: "reelio Pulse",
+    title: "Reelio Pulse",
     label: "Short-Form Velocity",
-    shortDescription: "High-energy under 90-second hooks designed for viral reach and engagement.",
+    shortDescription: "High-energy, sub-90-second hooks designed for viral reach and engagement.",
     longDescription:
       "Pulse is built for momentum. We engineer fast, memorable cuts and opening hooks that are tuned for retention spikes and replay behavior across social feeds.",
     bullets: [
-      "Optimized for social media reels",
-      "Promos",
+      "Optimized for social media Reels",
+      "Promotional Content",
       "Brand awareness",
-      "Credibility building",
+      "Credibility Building",
     ],
     accent: "#22D3EE",
+    image: "https://picsum.photos/seed/reelio-pulse/1600/1200",
   },
   {
     id: "feature",
-    title: "reelio Feature",
+    title: "Reelio Feature",
     label: "Long-Form Authority",
     shortDescription: "Cinematic and in-depth over 2-minute content that builds authority and trust.",
     longDescription:
@@ -195,10 +206,11 @@ export const offeringsContent: OfferingItem[] = [
       "Documentary",
     ],
     accent: "#FB923C",
+    image: "https://picsum.photos/seed/reelio-feature/1600/1200",
   },
   {
     id: "voice",
-    title: "reelio Voice",
+    title: "Reelio Voice",
     label: "Audio Influence",
     shortDescription:
       "Thought leadership and expert conversations shaped into a multi-channel audio strategy.",
@@ -206,32 +218,35 @@ export const offeringsContent: OfferingItem[] = [
       "Voice turns raw conversation into consistent influence. We help structure, produce, and distribute expert audio presence into formats audiences actually follow.",
     bullets: ["Podcasts", "Studio setup"],
     accent: "#A78BFA",
+    image: "https://picsum.photos/seed/reelio-voice/1600/1200",
   },
   {
     id: "catalyst",
-    title: "reelio Catalyst",
+    title: "Reelio Catalyst",
     label: "Creative Conversion",
     shortDescription:
       "Precision-targeted ads designed to turn viewers into high-value customers.",
     longDescription:
       "Catalyst blends media strategy with conversion creative. We test fast, iterate hard, and align design assets with business outcomes rather than vanity metrics.",
     bullets: ["Advertisements", "Logo and poster design", "Animations", "Printables"],
+    image: "https://picsum.photos/seed/reelio-catalyst/1600/1200",
     accent: "#FB7185",
   },
   {
     id: "insights",
-    title: "reelio Insights",
+    title: "Reelio Insights",
     label: "Intelligence Layer",
     shortDescription:
       "Turning social metrics into actionable business intelligence and ROI mapping.",
     longDescription:
       "Insights connects content performance to decision-making. We map signals from audience behavior into clear strategic moves and measurable growth frameworks.",
+    image: "https://picsum.photos/seed/reelio-insights/1600/1200",
     bullets: ["Sentiment and trend mapping", "SEO and GEO", "Competitor benchmarking"],
     accent: "#A3E635",
   },
   {
     id: "persona",
-    title: "reelio Persona",
+    title: "Reelio Persona",
     label: "Executive Positioning",
     shortDescription:
       "Transforming founders and executives into influential industry voices.",
@@ -239,20 +254,11 @@ export const offeringsContent: OfferingItem[] = [
       "Persona defines how leadership is perceived at scale. We shape narrative, visual tone, and communication rhythm so founders are recognized as category voices.",
     bullets: ["Personal branding", "Storytelling and positioning", "High-value networking"],
     accent: "#60A5FA",
+    image: "https://picsum.photos/seed/reelio-persona/1600/1200",
   },
 ];
 
 export const homeWorks: WorkItem[] = [
-  {
-    id: "atlas",
-    title: "Atlas Launch Sprint",
-    category: "Growth Narrative",
-    year: "2026",
-    summary: "From first teaser to conversion campaign in six weeks for a fintech scale-up.",
-    image: "https://picsum.photos/seed/atlaswork/1600/1000",
-    vimeoEmbedUrl:
-      "https://player.vimeo.com/video/1183963937?badge=0&autopause=0&player_id=0&app_id=58479",
-  },
   {
     id: "nova",
     title: "Nova Thought Series",
@@ -305,5 +311,26 @@ export const resourcesWorks: WorkItem[] = [
     image: "https://picsum.photos/seed/motionlab/1200/800",
     vimeoEmbedUrl:
       "https://player.vimeo.com/video/1183963980?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+  },
+];
+
+export const equipmentShowcase: GearItem[] = [
+  {
+    id: "cinema-camera",
+    name: "Cinema Camera Kit",
+    description: "High dynamic range capture for premium storytelling.",
+    image: "https://picsum.photos/seed/reelio-cinema-camera/1200/900",
+  },
+  {
+    id: "audio-rig",
+    name: "Broadcast Audio Rig",
+    description: "Crisp, studio-grade voice capture for every format.",
+    image: "https://picsum.photos/seed/reelio-audio-rig/1200/900",
+  },
+  {
+    id: "lighting-setup",
+    name: "Pro Lighting Setup",
+    description: "Controlled, cinematic lighting for consistent brand quality.",
+    image: "https://picsum.photos/seed/reelio-lighting-setup/1200/900",
   },
 ];

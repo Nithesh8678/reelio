@@ -47,7 +47,7 @@ export function Preloader() {
                 />
               ) : (
                 <span className="brand-wordmark text-7xl md:text-[10rem] text-white">
-                  REELIO<span className="text-primary">.</span>
+                  Reelio<span className="text-primary">.</span>
                 </span>
               )}
             </motion.div>

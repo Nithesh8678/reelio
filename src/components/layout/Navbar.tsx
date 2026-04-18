@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About us", href: "/about" },
   { name: "Offerings", href: "/offerings" },
-  { name: "Resources", href: "/resources" },
+  { name: "Our Creations", href: "/resources" },
   { name: "Contact us", href: "/contact" },
 ];
 
@@ -48,7 +48,7 @@ export function Navbar() {
             />
           ) : (
             <span className="brand-wordmark text-3xl text-white">
-              REELIO<span className="text-primary">.</span>
+              Reelio<span className="text-primary">.</span>
             </span>
           )}
         </Link>
@@ -66,11 +66,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link href="/contact">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-none px-8">
-              LET'S TALK
-            </Button>
-          </Link>
         </nav>
 
         {/* Mobile Nav */}

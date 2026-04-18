@@ -9,7 +9,7 @@ const footerLinks = [
   { name: "Home", href: "/" },
   { name: "About us", href: "/about" },
   { name: "Offerings", href: "/offerings" },
-  { name: "Resources", href: "/resources" },
+  { name: "Our Creations", href: "/resources" },
   { name: "Contact us", href: "/contact" },
 ];
 
@@ -38,7 +38,7 @@ export function Footer() {
                 />
               ) : (
                 <span className="brand-wordmark text-2xl text-white">
-                  REELIO<span className="text-primary">.</span>
+                  Reelio<span className="text-primary">.</span>
                 </span>
               )}
             </Link>
@@ -48,7 +48,8 @@ export function Footer() {
 
             <div className="mt-8 space-y-3 text-sm text-white/65">
               <p className="uppercase tracking-[0.2em] text-white/40 text-xs">Contact</p>
-              <p>{contactDetails.address}</p>
+              <p>{contactDetails.addressLine1}</p>
+              <p>{contactDetails.addressLine2}</p>
               <p>{contactDetails.phone}</p>
               <p>{contactDetails.email}</p>
             </div>
@@ -88,7 +89,7 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-8">
           <div className="text-white/20 text-xs tracking-widest uppercase">
-            © 2026 <span className="brand-wordmark">REELIO</span> Agency. All rights reserved.
+            © 2026 <span className="brand-wordmark">Reelio</span> Agency. All rights reserved.
           </div>
           <div className="flex gap-12 text-white/20 text-xs tracking-widest uppercase">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

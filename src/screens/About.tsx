@@ -41,7 +41,7 @@ export default function About() {
                 transition={{ delay: 0.1 }}
                 className="border border-white/10 bg-white/[0.02] p-8 md:col-span-5 md:p-10"
               >
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">How reelio started</p>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary">How Reelio started</p>
                 <p className="text-white/70 leading-relaxed">{aboutCopy.origin}</p>
               </motion.article>
             </div>
