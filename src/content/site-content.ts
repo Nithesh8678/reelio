@@ -64,9 +64,9 @@ export const whatsappUrl = "https://wa.me/15551234567";
 export const contactDetails = {
   email: "letstalk@reelio.co.in",
   phone: "+91 63856 66442",
-  addressLine1: "No. 21, Nungambakkam High Road",
+  addressLine1: "",
   addressLine2: "Chennai 600056",
-  address: "No. 21, Nungambakkam High Road, Chennai 600056",
+  address: "Chennai 600056",
 };
 
 export const socialUrls = {
