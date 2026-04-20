@@ -9,6 +9,7 @@ import { instagramUrl } from "@/content/site-content";
 
 export default function Resources() {
   const spynadLoop = ["SPYNAD", "Website Partner", "Digital Presence", "Conversion-first", "Design Precision"];
+  const equipmentLoop = ["Equipment Partners", "Cinematic Capture", "Studio Lighting", "Audio Fidelity", "Brand Precision"];
 
   return (
     <PageTransition>
@@ -25,90 +26,134 @@ export default function Resources() {
           />
 
           <div className="container relative mx-auto px-6">
-            <div className="grid items-center gap-16 lg:grid-cols-12">
-              <motion.article
-                initial={{ opacity: 0, y: 26 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-5"
-              >
-                <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-xl lg:text-left">
-                  <div className="mb-6 flex items-center justify-center gap-4 lg:justify-start">
-                    <span className="h-px w-12 bg-primary/80" />
-                    <p className="text-xs font-semibold uppercase tracking-[0.34em] text-primary">Equipment Partners</p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.55 }}
+              className="relative overflow-hidden border border-white/10 bg-black/50"
+            >
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 10% 14%, rgba(34,211,238,0.15), transparent 34%), radial-gradient(circle at 92% 78%, rgba(227,30,36,0.14), transparent 40%), linear-gradient(to right, rgba(255,255,255,0.03), transparent 35%)",
+                }}
+              />
+
+              <div className="relative grid items-center gap-8 p-5 sm:p-6 lg:grid-cols-12 lg:p-8">
+                <motion.article
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45 }}
+                  className="lg:col-span-4"
+                >
+                  <div className="mb-5 flex items-center gap-4">
+                    <span className="h-px w-12 bg-cyan-300/90" />
+                    <p className="text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300/90">Equipment Partners</p>
                   </div>
 
-                  <h2 className="mx-auto max-w-[18ch] text-3xl font-heading font-bold leading-tight text-white md:text-5xl lg:mx-0">
-                    Every frame we shoot is powered by professional-grade gear — because your brand deserves nothing less.
-                  </h2>
+                  <h3 className="text-2xl font-heading font-bold uppercase tracking-[0.16em] text-white md:text-3xl">
+                    Production Stack
+                  </h3>
 
-                  <p className="mx-auto mt-8 max-w-[34ch] text-lg leading-relaxed text-white/80 lg:mx-0">
-                    Top-tier gear. Scroll-stopping content. Real results for your brand.
+                  <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-white/78 md:text-base">
+                    Gear that keeps visual quality cinematic and brand output consistent across every format.
                   </p>
 
-                  <div className="mt-10 flex flex-wrap justify-center gap-3 lg:justify-start text-[11px] uppercase tracking-[0.22em] text-white/70">
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Cinematic Capture</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Premium Lighting</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Studio Audio</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Brand Precision</div>
+                  <div className="mt-6 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.2em] text-white/70">
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Cinematic Capture</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Premium Lighting</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Studio Audio</div>
                   </div>
-                </div>
-              </motion.article>
+                </motion.article>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.65 }}
-                className="relative lg:col-span-7"
-              >
-                <div className="relative mx-auto aspect-square w-full max-w-[760px]">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-[2%] rounded-[2.75rem] border border-white/10"
-                  />
-
-                  <motion.div
-                    animate={{ rotate: [360, 0] }}
-                    transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-[8%] rounded-[2.5rem] border border-white/8"
-                  />
-
-                  <div className="absolute inset-[14%] overflow-hidden rounded-full border border-white/15 bg-black shadow-[0_0_90px_rgba(227,30,36,0.2)]">
-                    <motion.img
-                      src="/media-partner.PNG"
-                      alt="Production equipment partner"
-                      className="h-full w-full object-cover"
-                      whileHover={{ scale: 1.04 }}
-                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55 }}
+                  className="relative lg:col-span-8"
+                >
+                  <div className="relative mx-auto max-w-4xl">
+                    <motion.div
+                      animate={{ opacity: [0.2, 0.36, 0.2] }}
+                      transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                      className="pointer-events-none absolute inset-0 rounded-[1.4rem] border border-cyan-300/20"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/35 via-transparent to-white/8" />
+
+                    <motion.div
+                      animate={{ x: [0, 8, 0] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                      className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/20 blur-3xl"
+                    />
+
+                    <div className="relative overflow-hidden rounded-[1.2rem] border border-white/15 bg-gradient-to-r from-black via-[#0e1214] to-black px-4 py-5 shadow-[0_18px_55px_rgba(0,0,0,0.5)] sm:px-6 sm:py-6">
+                      <div className="pointer-events-none absolute left-0 top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-cyan-300/60 to-transparent" />
+                      <div className="pointer-events-none absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-primary/60 to-transparent" />
+
+                      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                        <div className="min-w-0">
+                          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/45">Featured Gear Partner</p>
+                          <h4 className="text-xl font-heading font-bold uppercase tracking-[0.15em] text-white sm:text-2xl">Media Systems</h4>
+                          <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/60">Visual and Capture Infrastructure</p>
+                        </div>
+
+                        <motion.div
+                          whileHover={{ scale: 1.03, y: -2 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          className="relative w-full max-w-[360px] overflow-hidden border border-white/15 bg-black/80 p-3 sm:p-4"
+                        >
+                          <img
+                            src="/media-partner.PNG"
+                            alt="Equipment partner showcase"
+                            className="h-auto w-full object-contain"
+                          />
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/10" />
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0, x: 18 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.12, duration: 0.4 }}
+                      className="absolute -right-2 top-3 border border-white/15 bg-black/60 px-3 py-2 text-[9px] uppercase tracking-[0.24em] text-white/85 backdrop-blur-sm"
+                    >
+                      Equipment Partner
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, x: -18 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.16, duration: 0.4 }}
+                      className="absolute -left-2 bottom-3 border border-cyan-300/40 bg-cyan-300/15 px-3 py-2 text-[9px] uppercase tracking-[0.24em] text-white"
+                    >
+                      Production Stack
+                    </motion.div>
                   </div>
+                </motion.div>
+              </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    className="absolute right-0 top-[14%] border border-white/15 bg-black/55 px-5 py-4 text-[11px] uppercase tracking-[0.24em] text-white/80 backdrop-blur-sm"
-                  >
-                    Equipment Partner
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
-                    className="absolute bottom-[14%] left-0 border border-primary/35 bg-primary/15 px-5 py-4 text-[11px] uppercase tracking-[0.24em] text-white"
-                  >
-                    Content Stack
-                  </motion.div>
+              <div className="relative overflow-hidden border-t border-white/10 py-3">
+                <div className="marquee-track flex min-w-max items-center gap-2 px-5 sm:px-8">
+                  {Array.from({ length: 3 }).flatMap((_, loopIndex) =>
+                    equipmentLoop.map((item, index) => (
+                      <span
+                        key={`${item}-${loopIndex}-${index}`}
+                        className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55"
+                      >
+                        {item}
+                        <span className="text-cyan-300/75">•</span>
+                      </span>
+                    ))
+                  )}
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
