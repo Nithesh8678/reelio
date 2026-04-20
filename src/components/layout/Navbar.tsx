@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -72,23 +72,18 @@ export function Navbar() {
         {/* Mobile Nav */}
         <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white hover:bg-white/10"
-                aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setIsMobileMenuOpen((prev) => !prev);
-                }}
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </Button>
-            </SheetTrigger>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-white/10"
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
             <SheetContent side="right" className="bg-reelio-black border-white/10 text-white w-full sm:w-[400px]">
               <div className="flex items-center justify-between mb-8">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/60">Menu</p>
+                <p className="text-xs uppercase tracking-[0.12em] text-white/60">Menu</p>
                 <Button
                   variant="ghost"
                   size="icon"
