@@ -57,7 +57,7 @@ export type CorePhilosophyItem = {
   accent: string;
 };
 
-export const instagramUrl = "https://instagram.com/reelio.agency";
+export const instagramUrl = "https://www.instagram.com/reelio_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 
 export const whatsappUrl = "https://wa.me/15551234567";
 
@@ -71,9 +71,7 @@ export const contactDetails = {
 
 export const socialUrls = {
   instagram: instagramUrl,
-  twitter: "#",
-  linkedin: "#",
-  github: "#",
+  whatsapp: whatsappUrl,
 };
 
 export const existingCustomers: CustomerNameItem[] = [
@@ -83,6 +81,7 @@ export const existingCustomers: CustomerNameItem[] = [
   { name: "FINORBIT", accent: "#FB7185" },
   { name: "GROWTHDOCK", accent: "#A3E635" },
   { name: "VERDANT LABS", accent: "#60A5FA" },
+  { name: "SPYNAD", accent: "#FACC15" },
 ];
 
 export const testimonials: TestimonialItem[] = [
@@ -190,7 +189,7 @@ export const offeringsContent: OfferingItem[] = [
       "Credibility Building",
     ],
     accent: "#22D3EE",
-    image: "https://picsum.photos/seed/reelio-pulse/1600/1200",
+    image: "/offerings/pulse.JPG",
   },
   {
     id: "feature",
@@ -206,7 +205,7 @@ export const offeringsContent: OfferingItem[] = [
       "Documentary",
     ],
     accent: "#FB923C",
-    image: "https://picsum.photos/seed/reelio-feature/1600/1200",
+    image: "/offerings/feature.PNG",
   },
   {
     id: "voice",
@@ -218,7 +217,7 @@ export const offeringsContent: OfferingItem[] = [
       "Voice turns raw conversation into consistent influence. We help structure, produce, and distribute expert audio presence into formats audiences actually follow.",
     bullets: ["Podcasts", "Studio setup"],
     accent: "#A78BFA",
-    image: "https://picsum.photos/seed/reelio-voice/1600/1200",
+    image: "/offerings/voice.JPG",
   },
   {
     id: "catalyst",
@@ -229,7 +228,7 @@ export const offeringsContent: OfferingItem[] = [
     longDescription:
       "Catalyst blends media strategy with conversion creative. We test fast, iterate hard, and align design assets with business outcomes rather than vanity metrics.",
     bullets: ["Advertisements", "Logo and poster design", "Animations", "Printables"],
-    image: "https://picsum.photos/seed/reelio-catalyst/1600/1200",
+    image: "/offerings/catalyst.jpeg",
     accent: "#FB7185",
   },
   {
@@ -240,7 +239,7 @@ export const offeringsContent: OfferingItem[] = [
       "Turning social metrics into actionable business intelligence and ROI mapping.",
     longDescription:
       "Insights connects content performance to decision-making. We map signals from audience behavior into clear strategic moves and measurable growth frameworks.",
-    image: "https://picsum.photos/seed/reelio-insights/1600/1200",
+    image: "/offerings/insights.JPG",
     bullets: ["Sentiment and trend mapping", "SEO and GEO", "Competitor benchmarking"],
     accent: "#A3E635",
   },
@@ -254,7 +253,7 @@ export const offeringsContent: OfferingItem[] = [
       "Persona defines how leadership is perceived at scale. We shape narrative, visual tone, and communication rhythm so founders are recognized as category voices.",
     bullets: ["Personal branding", "Storytelling and positioning", "High-value networking"],
     accent: "#60A5FA",
-    image: "https://picsum.photos/seed/reelio-persona/1600/1200",
+    image: "/offerings/persona.JPG",
   },
 ];
 
@@ -277,7 +276,7 @@ export const homeWorks: WorkItem[] = [
     summary: "Cross-platform ad creative engine tuned for CAC efficiency and sustained ROAS gains.",
     image: "https://picsum.photos/seed/lineawork/1600/1000",
     vimeoEmbedUrl:
-      "https://player.vimeo.com/video/1183963980?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
   },
 ];
 

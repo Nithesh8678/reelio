@@ -11,7 +11,7 @@ export function CollaboratorsTicker() {
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-reelio-black to-transparent" />
 
       <div className="mb-3 flex items-center justify-center">
-        <p className="text-[10px] uppercase tracking-[0.45em] text-white/40">Collaborators</p>
+        <p className="text-[10px] uppercase tracking-[0.45em] text-white/40">Equipment Partners</p>
       </div>
 
       <div className="overflow-hidden">

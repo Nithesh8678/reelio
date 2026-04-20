@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { contactDetails, socialUrls } from "@/content/site-content";
 
@@ -15,9 +15,7 @@ const footerLinks = [
 
 const socialItems = [
   { icon: Instagram, href: socialUrls.instagram, label: "Instagram" },
-  { icon: Twitter, href: socialUrls.twitter, label: "Twitter" },
-  { icon: Linkedin, href: socialUrls.linkedin, label: "LinkedIn" },
-  { icon: Github, href: socialUrls.github, label: "GitHub" },
+  { icon: MessageCircle, href: socialUrls.whatsapp, label: "WhatsApp" },
 ];
 
 export function Footer() {
