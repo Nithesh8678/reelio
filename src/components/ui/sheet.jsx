@@ -1,0 +1,105 @@
+import * as React from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
+const SheetContext = React.createContext(null);
+function useSheetContext() {
+    const ctx = React.useContext(SheetContext);
+    if (!ctx) {
+        throw new Error("Sheet components must be used inside <Sheet>");
+    }
+    return ctx;
+}
+function mergeHandlers(existing, incoming) {
+    return (event) => {
+        existing?.(event);
+        if (!event.defaultPrevented)
+            incoming(event);
+    };
+}
+function Sheet({ children, open: controlledOpen, defaultOpen = false, onOpenChange }) {
+    const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen);
+    const isControlled = controlledOpen !== undefined;
+    const open = isControlled ? controlledOpen : uncontrolledOpen;
+    const setOpen = React.useCallback((value) => {
+        const nextOpen = typeof value === "function" ? value(open) : value;
+        if (!isControlled) {
+            setUncontrolledOpen(nextOpen);
+        }
+        onOpenChange?.(nextOpen);
+    }, [isControlled, onOpenChange, open]);
+    const value = React.useMemo(() => ({ open, setOpen }), [open, setOpen]);
+    return <SheetContext.Provider value={value}>{children}</SheetContext.Provider>;
+}
+function SheetTrigger({ asChild = false, children }) {
+    const { setOpen } = useSheetContext();
+    if (!React.isValidElement(children)) {
+        return null;
+    }
+    const childProps = children.props;
+    const triggerProps = {
+        onClick: mergeHandlers(childProps.onClick, () => setOpen(true)),
+    };
+    if (asChild) {
+        return React.cloneElement(children, triggerProps);
+    }
+    return (<button type="button" {...triggerProps}>
+      {children}
+    </button>);
+}
+function getSideClasses(side) {
+    switch (side) {
+        case "left":
+            return "left-0 top-0 h-full w-3/4 max-w-sm";
+        case "top":
+            return "left-0 top-0 w-full";
+        case "bottom":
+            return "left-0 bottom-0 w-full";
+        case "right":
+        default:
+            return "right-0 top-0 h-full w-3/4 max-w-sm";
+    }
+}
+function getMotionVariants(side) {
+    switch (side) {
+        case "left":
+            return { initial: { x: "-100%" }, animate: { x: 0 }, exit: { x: "-100%" } };
+        case "top":
+            return { initial: { y: "-100%" }, animate: { y: 0 }, exit: { y: "-100%" } };
+        case "bottom":
+            return { initial: { y: "100%" }, animate: { y: 0 }, exit: { y: "100%" } };
+        case "right":
+        default:
+            return { initial: { x: "100%" }, animate: { x: 0 }, exit: { x: "100%" } };
+    }
+}
+function SheetContent({ className, children, side = "right" }) {
+    const { open, setOpen } = useSheetContext();
+    const [mounted, setMounted] = React.useState(false);
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+    React.useEffect(() => {
+        if (!open)
+            return;
+        const onEscape = (event) => {
+            if (event.key === "Escape") {
+                setOpen(false);
+            }
+        };
+        document.addEventListener("keydown", onEscape);
+        return () => document.removeEventListener("keydown", onEscape);
+    }, [open, setOpen]);
+    if (!mounted)
+        return null;
+    const panelMotion = getMotionVariants(side);
+    return createPortal(<AnimatePresence>
+      {open && (<>
+          <motion.div className="fixed inset-0 z-50 bg-black/70" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} onClick={() => setOpen(false)}/>
+          <motion.div role="dialog" aria-modal="true" className={cn("fixed z-50 border bg-background p-6 shadow-lg", getSideClasses(side), className)} initial={panelMotion.initial} animate={panelMotion.animate} exit={panelMotion.exit} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}>
+            {children}
+          </motion.div>
+        </>)}
+    </AnimatePresence>, document.body);
+}
+export { Sheet, SheetTrigger, SheetContent };

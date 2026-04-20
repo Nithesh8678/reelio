@@ -4,9 +4,11 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { existingCustomers } from "@/content/site-content";
+import { collaboratorTags } from "@/content/site-content";
 
 export function Hero() {
+  const partnerItems = [...collaboratorTags, ...collaboratorTags];
+
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Elements */}
@@ -35,29 +37,39 @@ export function Hero() {
             <span className="text-primary italic">DIGITAL</span> <br />
             IMPACT<span className="text-primary">.</span>
           </motion.h1>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.32 }}
-            className="mb-12"
-          >
-            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/45">
-              Existing customers
-            </p>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-              {existingCustomers.map((customer) => (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.32 }}
+          className="relative left-1/2 right-1/2 mb-12 mt-12 w-screen -translate-x-1/2"
+        >
+          <p className="mb-4 px-6 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/45 md:px-10">
+            Equipment partners
+          </p>
+          <div className="relative overflow-hidden border-y border-white/10 bg-white/[0.02] py-3">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-reelio-black to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-reelio-black to-transparent" />
+            <div className="marquee-track flex min-w-max items-center gap-3 px-6 md:px-10">
+              {partnerItems.map((partner, index) => (
                 <div
-                  key={customer.name}
-                  className="border border-white/10 bg-white/[0.02] px-3 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/75"
-                  style={{ boxShadow: `inset 0 0 0 1px ${customer.accent}40` }}
+                  key={`${partner.name}-${index}`}
+                  className="rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/85"
+                  style={{
+                    borderColor: `${partner.accent}80`,
+                    backgroundColor: `${partner.accent}20`,
+                    boxShadow: `inset 0 0 0 1px ${partner.accent}30`,
+                  }}
                 >
-                  {customer.name}
+                  {partner.name}
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
+        <div className="max-w-5xl">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-12">
             <motion.p
               initial={{ opacity: 0, x: -20 }}

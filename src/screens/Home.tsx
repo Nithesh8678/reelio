@@ -1,12 +1,11 @@
 "use client";
 
 import { Hero } from "@/components/sections/Hero";
-import { CollaboratorsTicker } from "@/components/sections/CollaboratorsTicker";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { motion } from "motion/react";
-import { ArrowRight, Instagram, MessageCircle } from "lucide-react";
-import { homeWorks, socialUrls } from "@/content/site-content";
+import { ArrowRight } from "lucide-react";
+import { homeWorks } from "@/content/site-content";
 
 export default function Home() {
   const isTwoCardLayout = homeWorks.length === 2;
@@ -14,50 +13,6 @@ export default function Home() {
   return (
     <PageTransition>
       <Hero />
-
-      <section className="border-y border-white/10 bg-reelio-black py-16">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.45 }}
-            className="mx-auto max-w-3xl text-center"
-          >
-            <p className="mb-4 text-[10px] uppercase tracking-[0.35em] text-white/45">Socials</p>
-            <h2 className="text-3xl font-heading font-bold text-white md:text-5xl">
-              STAY CONNECTED WITH
-              <span className="block italic text-primary">REELIO</span>
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-white/65">
-              Follow our latest campaigns and chat with the team directly for quick updates.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={socialUrls.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-white/80 transition-colors hover:border-primary hover:text-primary"
-              >
-                <Instagram className="h-4 w-4" />
-                Instagram
-              </a>
-              <a
-                href={socialUrls.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/20 px-6 py-3 text-xs font-bold uppercase tracking-[0.24em] text-white/80 transition-colors hover:border-primary hover:text-primary"
-              >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <CollaboratorsTicker />
       
       <section className="py-32 bg-reelio-black">
         <div className="container mx-auto px-6">
