@@ -30,10 +30,30 @@ function mergeHandlers<T extends React.SyntheticEvent>(
   };
 }
 
-function Sheet({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = React.useState(false);
+interface SheetProps {
+  children: React.ReactNode;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
 
-  const value = React.useMemo(() => ({ open, setOpen }), [open]);
+function Sheet({ children, open: controlledOpen, defaultOpen = false, onOpenChange }: SheetProps) {
+  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+
+  const setOpen = React.useCallback<React.Dispatch<React.SetStateAction<boolean>>>(
+    (value) => {
+      const nextOpen = typeof value === "function" ? value(open) : value;
+      if (!isControlled) {
+        setUncontrolledOpen(nextOpen);
+      }
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange, open]
+  );
+
+  const value = React.useMemo(() => ({ open, setOpen }), [open, setOpen]);
 
   return <SheetContext.Provider value={value}>{children}</SheetContext.Provider>;
 }

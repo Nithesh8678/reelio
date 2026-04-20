@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
@@ -19,6 +19,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [logoReady, setLogoReady] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export function Navbar() {
         isScrolled ? "bg-background/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           {logoReady ? (
             <img
@@ -70,14 +71,35 @@ export function Navbar() {
 
         {/* Mobile Nav */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white">
-                <Menu className="w-6 h-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white hover:bg-white/10"
+                aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setIsMobileMenuOpen((prev) => !prev);
+                }}
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-reelio-black border-white/10 text-white w-full sm:w-[400px]">
-              <div className="flex flex-col gap-8 mt-12">
+              <div className="flex items-center justify-between mb-8">
+                <p className="text-xs uppercase tracking-[0.2em] text-white/60">Menu</p>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:bg-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Close navigation menu"
+                >
+                  <X className="w-6 h-6" />
+                </Button>
+              </div>
+              <div className="flex flex-col gap-6">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.name}
@@ -87,7 +109,8 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-4xl font-heading font-bold transition-colors ${
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-2xl sm:text-3xl leading-tight font-heading font-bold transition-colors ${
                         pathname === link.href ? "text-primary" : "hover:text-primary"
                       }`}
                     >
@@ -95,8 +118,8 @@ export function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
-                <Link href="/contact">
-                  <Button className="bg-primary text-white rounded-none w-full py-8 text-xl mt-4">
+                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="bg-primary text-white rounded-none w-full py-6 text-base mt-2">
                     GET IN TOUCH
                   </Button>
                 </Link>
