@@ -183,7 +183,7 @@ export const homeWorks = [
         year: "2025",
         summary: "Cross-platform ad creative engine tuned for CAC efficiency and sustained ROAS gains.",
         image: "https://picsum.photos/seed/lineawork/1600/1000",
-        vimeoEmbedUrl: "https://player.vimeo.com/video/76979871?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+        vimeoEmbedUrl: "https://player.vimeo.com/video/1184874799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
     },
 ];
 export const resourcesWorks = [
@@ -194,7 +194,7 @@ export const resourcesWorks = [
         year: "2026",
         summary: "A cinematic founder story crafted for YouTube and executive events.",
         image: "https://picsum.photos/seed/operatorfilm/1200/800",
-        vimeoEmbedUrl: "https://player.vimeo.com/video/1183963937?badge=0&autopause=0&player_id=0&app_id=58479",
+        vimeoEmbedUrl: "https://player.vimeo.com/video/1184874799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
     },
     {
         id: "signal-room",
