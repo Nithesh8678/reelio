@@ -8,6 +8,8 @@ import { motion } from "motion/react";
 import { instagramUrl } from "@/content/site-content";
 
 export default function Resources() {
+  const spynadLoop = ["SPYNAD", "Website Partner", "Digital Presence", "Conversion-first", "Design Precision"];
+
   return (
     <PageTransition>
       <div className="pt-32">
@@ -113,71 +115,88 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55 }}
-              className="relative mt-14 overflow-hidden border-y border-white/10 bg-white/[0.02] py-12 md:py-16"
+              className="relative mt-14 overflow-hidden border border-white/10 bg-black/50"
             >
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
                   backgroundImage:
-                    "radial-gradient(circle at 10% 8%, rgba(250,204,21,0.18), transparent 35%), radial-gradient(circle at 88% 76%, rgba(227,30,36,0.16), transparent 42%)",
+                    "radial-gradient(circle at 8% 18%, rgba(250,204,21,0.16), transparent 32%), radial-gradient(circle at 92% 80%, rgba(227,30,36,0.14), transparent 38%), linear-gradient(to right, rgba(255,255,255,0.03), transparent 35%)",
                 }}
               />
 
-              <div className="relative grid items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-10">
+              <div className="relative grid items-center gap-8 p-5 sm:p-6 lg:grid-cols-12 lg:p-8">
                 <motion.article
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45 }}
-                  className="lg:col-span-5"
+                  className="lg:col-span-4"
                 >
                   <div className="mb-5 flex items-center gap-4">
                     <span className="h-px w-12 bg-[#FACC15]" />
                     <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#FACC15]">Website Partner</p>
                   </div>
 
-                  <h3 className="text-3xl font-heading font-bold uppercase tracking-[0.14em] text-white md:text-4xl">
+                  <h3 className="text-2xl font-heading font-bold uppercase tracking-[0.16em] text-white md:text-3xl">
                     SPYNAD
                   </h3>
 
-                  <p className="mt-6 max-w-[34ch] text-base leading-relaxed text-white/80">
-                    Our website partner for conversion-focused digital presence, performance landing experiences, and premium web execution.
+                  <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-white/78 md:text-base">
+                    Built for high-intent traffic, fast loading, and premium web storytelling.
                   </p>
 
-                  <div className="mt-8 flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.22em] text-white/70">
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Brand Website</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Conversion UX</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-4 py-3">Growth Ready</div>
+                  <div className="mt-6 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.2em] text-white/70">
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Brand Website</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Conversion UX</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Growth Ready</div>
                   </div>
                 </motion.article>
 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.55 }}
-                  className="relative lg:col-span-7"
+                  className="relative lg:col-span-8"
                 >
-                  <div className="relative mx-auto max-w-3xl">
+                  <div className="relative mx-auto max-w-4xl">
                     <motion.div
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
-                      className="pointer-events-none absolute inset-0 rounded-[2rem] border border-white/10"
+                      animate={{ opacity: [0.22, 0.38, 0.22] }}
+                      transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                      className="pointer-events-none absolute inset-0 rounded-[1.4rem] border border-[#FACC15]/20"
                     />
 
                     <motion.div
-                      animate={{ rotate: [360, 0] }}
-                      transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
-                      className="pointer-events-none absolute inset-[10px] rounded-[1.7rem] border border-white/8"
+                      animate={{ x: [0, 8, 0] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                      className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/20 blur-3xl"
                     />
 
-                    <div className="relative overflow-hidden rounded-[1.55rem] border border-white/20 bg-black/70 p-5 sm:p-7 shadow-[0_24px_70px_rgba(0,0,0,0.45)]">
-                      <img
-                        src="/brand/SPYNAD%20logo.png"
-                        alt="SPYNAD website partner"
-                        className="h-auto w-full object-contain"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/28 via-transparent to-white/10" />
+                    <div className="relative overflow-hidden rounded-[1.2rem] border border-white/15 bg-gradient-to-r from-black via-[#0f0f0f] to-black px-4 py-5 shadow-[0_18px_55px_rgba(0,0,0,0.5)] sm:px-6 sm:py-6">
+                      <div className="pointer-events-none absolute left-0 top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-[#FACC15]/60 to-transparent" />
+                      <div className="pointer-events-none absolute right-0 top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-primary/60 to-transparent" />
+
+                      <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                        <div className="min-w-0">
+                          <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/45">Featured Partner</p>
+                          <h4 className="text-xl font-heading font-bold uppercase tracking-[0.15em] text-white sm:text-2xl">SPYNAD</h4>
+                          <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/60">Website Systems and Design</p>
+                        </div>
+
+                        <motion.div
+                          whileHover={{ scale: 1.03, y: -2 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          className="relative w-full max-w-[360px] overflow-hidden border border-white/15 bg-black/80 p-3 sm:p-4"
+                        >
+                          <img
+                            src="/brand/SPYNAD%20logo.png"
+                            alt="SPYNAD website partner"
+                            className="h-auto w-full object-contain"
+                          />
+                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/10" />
+                        </motion.div>
+                      </div>
                     </div>
 
                     <motion.div
@@ -185,7 +204,7 @@ export default function Resources() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.12, duration: 0.4 }}
-                      className="absolute -right-2 top-4 border border-white/15 bg-black/60 px-4 py-3 text-[10px] uppercase tracking-[0.24em] text-white/85 backdrop-blur-sm"
+                      className="absolute -right-2 top-3 border border-white/15 bg-black/60 px-3 py-2 text-[9px] uppercase tracking-[0.24em] text-white/85 backdrop-blur-sm"
                     >
                       Website Partner
                     </motion.div>
@@ -195,12 +214,28 @@ export default function Resources() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.16, duration: 0.4 }}
-                      className="absolute -left-2 bottom-4 border border-[#FACC15]/40 bg-[#FACC15]/15 px-4 py-3 text-[10px] uppercase tracking-[0.24em] text-white"
+                      className="absolute -left-2 bottom-3 border border-[#FACC15]/40 bg-[#FACC15]/15 px-3 py-2 text-[9px] uppercase tracking-[0.24em] text-white"
                     >
                       SPYNAD
                     </motion.div>
                   </div>
                 </motion.div>
+              </div>
+
+              <div className="relative overflow-hidden border-t border-white/10 py-3">
+                <div className="marquee-track flex min-w-max items-center gap-2 px-5 sm:px-8">
+                  {Array.from({ length: 3 }).flatMap((_, loopIndex) =>
+                    spynadLoop.map((item, index) => (
+                      <span
+                        key={`${item}-${loopIndex}-${index}`}
+                        className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/55"
+                      >
+                        {item}
+                        <span className="text-[#FACC15]/70">•</span>
+                      </span>
+                    ))
+                  )}
+                </div>
               </div>
             </motion.div>
           </div>
