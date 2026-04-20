@@ -46,7 +46,7 @@ export function Hero() {
           className="relative left-1/2 right-1/2 mb-12 mt-12 w-screen -translate-x-1/2"
         >
           <p className="mb-4 px-6 text-[10px] font-semibold uppercase tracking-[0.34em] text-white/45 md:px-10">
-            Equipment partners
+            Valuable Clients
           </p>
           <div className="relative overflow-hidden border-y border-white/10 bg-white/[0.02] py-3">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-reelio-black to-transparent" />

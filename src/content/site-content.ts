@@ -289,7 +289,7 @@ export const resourcesWorks: WorkItem[] = [
     summary: "A cinematic founder story crafted for YouTube and executive events.",
     image: "https://picsum.photos/seed/operatorfilm/1200/800",
     vimeoEmbedUrl:
-      "https://player.vimeo.com/video/1183963937?badge=0&autopause=0&player_id=0&app_id=58479",
+      "https://player.vimeo.com/video/1184874799?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
   },
   {
     id: "signal-room",
