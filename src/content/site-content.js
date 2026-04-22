@@ -215,6 +215,24 @@ export const resourcesWorks = [
         vimeoEmbedUrl: "https://player.vimeo.com/video/1183963980?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     },
 ];
+export const behindTheScenesClips = [
+    {
+        id: "bts-01",
+        title: "Set Motion 01",
+        subtitle: "Raw creative process from the floor",
+        vibe: "Fast cuts, real direction, no filters",
+        src: "/IMG_8763.MOV",
+        accent: "#22D3EE",
+    },
+    {
+        id: "bts-02",
+        title: "Set Motion 02",
+        subtitle: "Energy moments between takes",
+        vibe: "Short, high-impact, cinematic snippets",
+        src: "/IMG_9048.MOV",
+        accent: "#F97316",
+    },
+];
 export const equipmentShowcase = [
     {
         id: "cinema-camera",

@@ -1,5 +1,7 @@
 "use client";
 import { Hero } from "@/components/sections/Hero";
+import { CollaboratorsTicker } from "@/components/sections/CollaboratorsTicker";
+import { BehindTheScenes } from "@/components/sections/BehindTheScenes";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { motion } from "motion/react";
@@ -9,6 +11,7 @@ export default function Home() {
     const isTwoCardLayout = homeWorks.length === 2;
     return (<PageTransition>
       <Hero />
+      <CollaboratorsTicker />
       
       <section className="py-32 bg-reelio-black">
         <div className="container mx-auto px-6">
@@ -71,6 +74,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <BehindTheScenes />
 
       <Testimonials />
     </PageTransition>);
