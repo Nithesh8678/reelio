@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { instagramUrl } from "@/content/site-content";
+import { BehindTheScenes } from "@/components/sections/BehindTheScenes";
 
 export default function Resources() {
   const spynadLoop = ["SPYNAD", "Website Partner", "Digital Presence", "Conversion-first", "Design Precision"];
@@ -59,13 +60,13 @@ export default function Resources() {
                   </h3>
 
                   <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-white/78 md:text-base">
-                    Gear that keeps visual quality cinematic and brand output consistent across every format.
+                    Every frame we shoot is powered by professional-grade gear — because your brand deserves nothing less.
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-2 text-[10px] uppercase tracking-[0.2em] text-white/70">
-                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Cinematic Capture</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Premium Lighting</div>
-                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Studio Audio</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Top-tier gear</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Scroll-stopping content</div>
+                    <div className="border border-white/10 bg-white/[0.02] px-3 py-2">Real results for your brand</div>
                   </div>
                 </motion.article>
 
@@ -154,6 +155,8 @@ export default function Resources() {
                 </div>
               </div>
             </motion.div>
+
+              <BehindTheScenes />
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

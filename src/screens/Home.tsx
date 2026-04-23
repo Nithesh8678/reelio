@@ -2,7 +2,6 @@
 
 import { Hero } from "@/components/sections/Hero";
 import { CollaboratorsTicker } from "@/components/sections/CollaboratorsTicker";
-import { BehindTheScenes } from "@/components/sections/BehindTheScenes";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { motion } from "motion/react";
@@ -15,7 +14,7 @@ export default function Home() {
   return (
     <PageTransition>
       <Hero />
-      <CollaboratorsTicker />
+      {/* <CollaboratorsTicker /> */}
       
       <section className="py-32 bg-reelio-black">
         <div className="container mx-auto px-6">
@@ -27,10 +26,10 @@ export default function Home() {
                 <span className="block italic text-primary">MOVE MARKETS</span>
               </h3>
             </div>
-            <button className="group flex items-center gap-4 text-sm font-bold tracking-[0.28em] text-white/50 uppercase hover:text-primary transition-colors">
+            {/* <button className="group flex items-center gap-4 text-sm font-bold tracking-[0.28em] text-white/50 uppercase hover:text-primary transition-colors">
               Explore all case studies
               <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
-            </button>
+            </button> */}
           </div>
 
           <div className="grid gap-8 md:grid-cols-12">
@@ -111,7 +110,7 @@ export default function Home() {
         </div>
       </section>
 
-      <BehindTheScenes />
+    
 
       <Testimonials />
     </PageTransition>
