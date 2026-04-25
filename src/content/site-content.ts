@@ -68,7 +68,7 @@ export type CorePhilosophyItem = {
 
 export const instagramUrl = "https://www.instagram.com/reelio_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 
-export const whatsappUrl = "https://wa.me/15551234567";
+export const whatsappUrl = "https://wa.me/+916385666442?text=Hello%20Reelio!%20I%20would%20like%20to%20know%20more%20about%20your%20services.";
 
 export const contactDetails = {
   email: "letstalk@reelio.co.in",
@@ -98,7 +98,7 @@ export const testimonials: TestimonialItem[] = [
     id: "a1",
     quote:
       "Reelio rebuilt our short-form engine from scratch. In 90 days, we went from inconsistent uploads to a predictable inbound pipeline.",
-    author: "Anika Raman",
+    author: "Ilakiya",
     role: "Marketing Lead",
     company: "NOVA PAY",
     accent: "#22D3EE",
@@ -107,7 +107,7 @@ export const testimonials: TestimonialItem[] = [
     id: "a2",
     quote:
       "The team blends creative instinct with hard numbers. Every campaign had a measurable goal and a clear feedback loop.",
-    author: "Rahul Menon",
+    author: "Barani",
     role: "Founder",
     company: "PULSE ENERGY",
     accent: "#FB7185",
@@ -116,7 +116,7 @@ export const testimonials: TestimonialItem[] = [
     id: "a3",
     quote:
       "What stood out was execution speed. Strategy, production, edits, and distribution were all synced and frictionless.",
-    author: "Meera S",
+    author: "Balaji",
     role: "Brand Director",
     company: "ASTER LIVING",
     accent: "#A3E635",
@@ -129,7 +129,7 @@ export const aboutCopy = {
   supporting:
     "We are a Chennai based growth partner specializing in high impact short-form content. Our team combines the flair of social storytelling with the rigor of deep cycle analytics that will help take your brand to the next level.",
   fullCycle:
-    "Full-cycle partner for brands to navigate the current digital landscape with content, short form marketing excellence and analytics.",
+    "Our engagement models are built around your momentum. Whether you need a high-impact 1-week production sprint to launch a campaign or a multi-year strategic partnership to scale your digital legacy, we adapt our cycle to match your growth velocity.",
   origin:
     "Reelio was born from a group of creative minds that understand your business, combined with high-end creative production that ensures your brand gets the required visibility to exceed your revenue targets.",
 };
@@ -173,14 +173,21 @@ export const corePhilosophy: CorePhilosophyItem[] = [
 ];
 
 export const collaboratorTags: CollaboratorTag[] = [
-  { name: "Northlane Ventures", accent: "#E31E24" },
-  { name: "Founders Circle", accent: "#F97316" },
-  { name: "Aster Studio", accent: "#22D3EE" },
-  { name: "Pilot Growth", accent: "#A3E635" },
-  { name: "Signal Labs", accent: "#60A5FA" },
-  { name: "Craft Narrative", accent: "#C084FC" },
-  { name: "Orbit Partners", accent: "#F43F5E" },
-  { name: "Velocity Guild", accent: "#38BDF8" },
+  { name: "Makeupbyillakiya", accent: "#E31E24" },
+  { name: "Parveen travels", accent: "#F97316" },
+  { name: "Reboot gym", accent: "#22D3EE" },
+  { name: "Abrokecollegekid", accent: "#A3E635" },
+  { name: "Be like barani", accent: "#60A5FA" },
+  { name: "Vinomohan", accent: "#C084FC" },
+  { name: "RRR catering", accent: "#F43F5E" },
+  { name: "Saya digital solutions", accent: "#38BDF8" },
+  { name: "Deepi Artist", accent: "#E31E24" },
+  { name: "Tamil business tribe", accent: "#F97316" },
+  { name: "Sakthivel pannerselvam", accent: "#22D3EE" },
+  { name: "Kalaimagicverse", accent: "#A3E635" },
+  { name: "Glee india exports pvt limited", accent: "#60A5FA" },
+  { name: "Balaji editing company", accent: "#C084FC" },
+  { name: "Makeupbyvarshine", accent: "#F43F5E" },
 ];
 
 export const offeringsContent: OfferingItem[] = [

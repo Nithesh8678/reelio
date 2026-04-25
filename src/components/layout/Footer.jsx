@@ -63,10 +63,10 @@ export function Footer() {
           <div className="text-white/20 text-xs tracking-widest uppercase">
             © 2026 <span className="brand-wordmark">Reelio</span> Agency. All rights reserved.
           </div>
-          <div className="flex gap-12 text-white/20 text-xs tracking-widest uppercase">
+          {/* <div className="flex gap-12 text-white/20 text-xs tracking-widest uppercase">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>);

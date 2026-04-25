@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       {/* <CollaboratorsTicker /> */}
       
-      <section className="py-32 bg-reelio-black">
+      {/* <section className="py-32 bg-reelio-black">
         <div className="container mx-auto px-6">
           <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
@@ -25,14 +25,14 @@ export default function Home() {
                 STORIES BUILT TO
                 <span className="block italic text-primary">MOVE MARKETS</span>
               </h3>
-            </div>
+            </div> */}
             {/* <button className="group flex items-center gap-4 text-sm font-bold tracking-[0.28em] text-white/50 uppercase hover:text-primary transition-colors">
               Explore all case studies
               <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform" />
             </button> */}
-          </div>
+          {/* </div> */}
 
-          <div className="grid gap-8 md:grid-cols-12">
+          {/* <div className="grid gap-8 md:grid-cols-12">
             {homeWorks.map((work, i) => {
               const hasVideo = Boolean(work.vimeoEmbedUrl);
               const spanClass = isTwoCardLayout
@@ -108,7 +108,7 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
     
 

@@ -11,9 +11,9 @@ export default function Home() {
     const isTwoCardLayout = homeWorks.length === 2;
     return (<PageTransition>
       <Hero />
-      <CollaboratorsTicker />
+      {/* <CollaboratorsTicker /> */}
       
-      <section className="py-32 bg-reelio-black">
+      {/* <section className="py-32 bg-reelio-black">
         <div className="container mx-auto px-6">
           <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
@@ -73,7 +73,7 @@ export default function Home() {
         })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <BehindTheScenes />
 

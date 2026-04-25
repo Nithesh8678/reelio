@@ -199,7 +199,7 @@ export function BehindTheScenes() {
             className="fixed inset-0 z-[80] bg-black/90 p-4 backdrop-blur-sm md:p-8"
           >
             <div className="mx-auto flex h-full w-full max-w-6xl flex-col border border-white/10 bg-black">
-              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 md:px-6 md:py-4">
+              <div className="flex-none flex items-center justify-between border-b border-white/10 px-4 py-3 md:px-6 md:py-4">
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/55">Behind The Scenes</p>
                   <h4 className="mt-1 text-base font-heading font-bold uppercase tracking-[0.16em] text-white md:text-lg">
@@ -251,8 +251,8 @@ export function BehindTheScenes() {
                 </div>
               </div>
 
-              <div className="grid flex-1 gap-0 md:grid-cols-12">
-                <div className="border-b border-white/10 p-5 md:col-span-4 md:border-b-0 md:border-r md:p-6">
+              <div className="grid flex-1 min-h-0 gap-0 overflow-hidden md:grid-cols-12">
+                <div className="border-b border-white/10 p-5 overflow-y-auto md:col-span-4 md:border-b-0 md:border-r md:p-6">
                   <div className="text-[11px] uppercase tracking-[0.26em] text-white/55">
                     {String(activeIndex + 1).padStart(2, "0")} / {String(behindTheScenesClips.length).padStart(2, "0")}
                   </div>
@@ -260,12 +260,13 @@ export function BehindTheScenes() {
                   <p className="mt-4 text-[11px] uppercase tracking-[0.24em] text-white/58">{activeClip.vibe}</p>
                 </div>
 
-                <div className="relative min-h-[48vh] bg-black md:col-span-8 md:min-h-0">
+                <div className="relative h-full min-h-[48vh] bg-black md:col-span-8 md:min-h-0">
                   <video
                     key={activeClip.id}
                     src={activeClip.src}
                     controls
                     autoPlay
+                    loop
                     playsInline
                     preload="metadata"
                     className="h-full w-full object-contain"
