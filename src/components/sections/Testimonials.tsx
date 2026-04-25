@@ -7,12 +7,14 @@ import { testimonials } from "@/content/site-content";
 
 export function Testimonials() {
   return (
-    <section className="relative overflow-hidden border-t border-white/5 bg-reelio-dark py-28 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-transparent to-reelio-dark py-28 md:py-32">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
             "radial-gradient(circle at 0% 0%, rgba(227,30,36,0.25), transparent 38%), radial-gradient(circle at 100% 100%, rgba(96,165,250,0.2), transparent 42%)",
+          maskImage: "linear-gradient(to bottom, transparent, black 10%, black)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 10%, black)",
         }}
       />
 
