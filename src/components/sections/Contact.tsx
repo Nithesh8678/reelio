@@ -84,17 +84,17 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-reelio-black relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 bg-reelio-black relative overflow-hidden">
       {/* Decorative background text */}
-      <div className="brand-wordmark absolute -bottom-20 -right-20 text-[20rem] font-bold text-white/[0.02] select-none pointer-events-none">
+      <div className="brand-wordmark absolute -bottom-10 -right-10 md:-bottom-20 md:-right-20 text-[10rem] md:text-[20rem] font-bold text-white/[0.02] select-none pointer-events-none">
         REELIO
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
           <div>
-            <h2 className="text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Get in touch</h2>
-            <h3 className="text-5xl md:text-8xl font-heading font-bold text-white mb-12 leading-none">
+            <h2 className="text-xs md:text-sm font-bold tracking-[0.4em] text-primary uppercase mb-6">Get in touch</h2>
+            <h3 className="text-4xl md:text-6xl lg:text-8xl font-heading font-bold text-white mb-10 md:mb-12 leading-none">
               READY TO <br />
               <span className="text-primary italic">REEL</span> IN <br />
               SUCCESS?
@@ -154,7 +154,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-reelio-dark border border-white/5 relative min-h-[600px] overflow-hidden"
+            className="bg-reelio-dark border border-white/5 relative min-h-[500px] md:min-h-[600px] overflow-hidden"
           >
             <AnimatePresence mode="wait">
               {status === "success" ? (
@@ -164,7 +164,7 @@ export function Contact() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-reelio-dark p-8 text-center"
+                  className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-reelio-dark p-6 md:p-8 text-center"
                 >
                   <div className="relative mb-10 flex items-center justify-center">
                     <motion.div
@@ -205,7 +205,7 @@ export function Contact() {
                       initial={{ y: "100%" }}
                       animate={{ y: 0 }}
                       transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className="mb-4 text-3xl font-heading font-bold uppercase tracking-widest text-white md:text-4xl"
+                      className="mb-3 md:mb-4 text-2xl md:text-3xl lg:text-4xl font-heading font-bold uppercase tracking-widest text-white"
                     >
                       Signal <span className="italic text-primary">Locked</span>
                     </motion.h4>
@@ -214,7 +214,7 @@ export function Contact() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 1.2 }}
-                    className="text-xs uppercase tracking-[0.2em] text-white/50"
+                    className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/50"
                   >
                     We'll get back to you shortly.
                   </motion.p>
@@ -227,7 +227,7 @@ export function Contact() {
                   exit={{ opacity: 0, scale: 1.05 }}
                   transition={{ duration: 0.5 }}
                   onSubmit={handleSubmit}
-                  className="space-y-8 p-12"
+                  className="space-y-6 md:space-y-8 p-6 md:p-12"
                 >
                   <input
                     type="text"
@@ -245,7 +245,7 @@ export function Contact() {
                     </div>
                   )}
 
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                     <div className="space-y-2">
                       <label className="text-[10px] uppercase tracking-widest text-white/40">Full Name</label>
                       <Input 
@@ -253,7 +253,7 @@ export function Contact() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 h-12" 
+                        className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 h-10 md:h-12" 
                         placeholder="John Doe" 
                       />
                     </div>
@@ -265,7 +265,7 @@ export function Contact() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 h-12" 
+                        className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 h-10 md:h-12" 
                         placeholder="john@example.com" 
                       />
                     </div>
@@ -277,7 +277,7 @@ export function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 h-12" 
+                      className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 h-10 md:h-12" 
                       placeholder="Project Inquiry" 
                     />
                   </div>
@@ -289,7 +289,7 @@ export function Contact() {
                       required
                       value={formData.message}
                       onChange={handleChange}
-                      className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 min-h-[150px] resize-none" 
+                      className="bg-transparent border-0 border-b border-white/10 rounded-none focus-visible:ring-0 focus-visible:border-primary text-white px-0 min-h-[120px] md:min-h-[150px] resize-none" 
                       placeholder="Tell us about your project..." 
                     />
                   </div>
@@ -297,7 +297,7 @@ export function Contact() {
                   <Button 
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full bg-primary hover:bg-white text-white hover:text-black rounded-none h-16 text-lg font-bold transition-all duration-500 disabled:opacity-50"
+                    className="w-full bg-primary hover:bg-white text-white hover:text-black rounded-none h-14 md:h-16 text-base md:text-lg font-bold transition-all duration-500 disabled:opacity-50"
                   >
                     {status === "submitting" ? (
                       <Loader2 className="animate-spin w-5 h-5" />
