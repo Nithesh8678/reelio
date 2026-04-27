@@ -1,7 +1,7 @@
 import { AppShell } from "@/components/layout/AppShell";
 import "./globals.css";
 export const metadata = {
-    title: "Reelio Agency",
+    title: "Reelio",
     description: "Data-driven creative agency website",
 };
 export default function RootLayout({ children, }) {

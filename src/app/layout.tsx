@@ -3,8 +3,11 @@ import { AppShell } from "@/components/layout/AppShell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Reelio Agency",
+  title: "Reelio",
   description: "Data-driven creative agency website",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
